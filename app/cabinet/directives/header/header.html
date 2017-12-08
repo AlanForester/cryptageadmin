@@ -1,0 +1,55 @@
+    <nav class="left-menu">
+        <div class="logo-container"><a href="/" class="logo">
+            <img src="/public/img/logosmall.png" alt="EmpireCPA">
+            <img class="logo-inverse" src="/public/img/logosmall.png" alt="EmpireCPA">
+        </a></div>
+        <div class="left-menu-inner scroll-pane scrolled-to-right">
+            <div style="position: relative; min-width: 1480px; height: 0px;">
+                <div style="position: absolute; top: 18px; right: 10px; width: 400px; color: #b2bed2; font-weight: 600; padding-top: 4px;">
+                    <a href="skype:antonina.lazukina?chat"><i class="icmn-skype"></i> antonina.lazukina</a>, <a href="skype:sakharovrom4n?chat"><i class="icmn-skype"></i> sakharovrom4n</a>
+                    <!--<i class="icmn-telegram"></i> @Kosmos0000-->
+
+                </div>
+            </div>
+            <mainMenu></mainMenu>
+        </div>
+    </nav>
+    <nav class="top-menu" ng-class="{'hidden-top-menu': hideTopMenu}">
+        <div class="menu-icon-container hidden-md-up">
+            <div class="animate-menu-button left-menu-toggle">
+                <div></div>
+            </div>
+        </div>
+        <div class="menu">
+            <!--<notifyMenu></notifyMenu>-->
+            <!--<noticesList></noticesList>-->
+            <div *ngIf="!(valutes&&valutes.length)" class="menu-info-block">
+                <div class="right hidden-xs-down"><span class="label label-pill label-success notify-main-bal" data-toggle="dropdown">Баланс: {{cash | numberFormat: "0":"&nbsp;"}} руб.</span></div>
+                <div class="right hidden-xs-down"><span class="label label-pill label-warning notify-main-bal">Холд: {{hold | numberFormat: "0":"&nbsp;"}} руб.</span></div>
+            </div>
+            <div *ngIf="valutes&&valutes.length" class="menu-info-block">
+                <div class="right hidden-xs-down dropdown">
+                    <span class="label label-pill label-success notify-main-bal dropdown-toggle" data-toggle="dropdown">Баланс: {{cash | numberFormat: "0":"&nbsp;"}} руб.</span>
+                    <div class="dropdown-menu dropdown-menu-right background-success" aria-labelledby="" role="menu">
+                        <div *ngFor="let v of valutes" class="dropdown-item color-white">{{v.code}} {{v.cash}}</div>
+                    </div>
+                </div>
+                <div class="right hidden-xs-down dropdown">
+                    <span class="label label-pill label-warning notify-main-bal dropdown-toggle" data-toggle="dropdown">Холд: {{hold | numberFormat: "0":"&nbsp;"}} руб.</span>
+                    <div class="dropdown-menu dropdown-menu-right background-warning" aria-labelledby="" role="menu">
+                        <div *ngFor="let v of valutes" class="dropdown-item color-white">{{v.code}} {{v.hold}}</div>
+                    </div>
+                </div>
+            </div>
+            <!--<div class="menu-info-block">-->
+                <!--<div class="right hidden-xs-down"><span class="label label-pill notify-main-bal" style="background:#5bc0de;color:#fff;">Бонусы: {{bonus}}<img src="/public/images/moneybag.png" style="height: 20px;margin:-4px 0 -1px 0;"> </span></div>-->
+            <!--</div>-->
+            <div *ngIf="router.url.indexOf('/cabinet/statistics')>=0" class="widthMB">
+                <h2>Статистика</h2>
+            </div>
+            <div *ngIf="router.url.indexOf('/cabinet/offers')>=0" class="left">
+                <h2>Офферы</h2>
+            </div>
+        </div>
+    </nav>
+

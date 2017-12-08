@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <base href="/" />
+    <title></title>
+    <meta name="viewport" content="width=1300, initial-scale=0.25">
+
+    <link href="/public/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/public/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+    <link href="/public/css/bootstrap-select.min.css" rel="stylesheet" />
+    <link href="/public/css/chartist.min.css" rel="stylesheet" />
+    <link href="/public/css/daterangepicker.css" rel="stylesheet" />
+    <link href="/public/css/select2.min.css" rel="stylesheet" />
+    <link href="/public/css/main.css" rel="stylesheet" />
+
+    <!--<script src="public/js/adv1.js"></script>-->
+
+
+    <!-- polyfill(s) for older browsers -->
+    <script src="node_modules/core-js/client/shim.min.js"></script>
+    <script src="node_modules/zone.js/dist/zone.js"></script>
+    <script src="node_modules/systemjs/dist/system.src.js"></script>
+
+    <script src="/public/js/jquery.min.js"></script>
+    <script src="/public/js/bootstrap.min.js"></script>
+    <script src="/public/js/bootstrap-select.min.js"></script>
+    <script src="/public/js/moment.min.js"></script>
+    <script src="/public/js/daterangepicker.js"></script>
+    <script src="/node_modules/clipboard/dist/clipboard.min.js"></script>
+
+    <script src="systemjs.config.js"></script>
+    <script>
+        System.import('app').catch(function (err) { console.error(err); });
+    </script>
+</head>
+<body class="menu-top menu-top-compact ng-scope theme-blue colorful-enabled menu-fixed mode-default">
+
+<!--<div class="alert alert-warning" id="blocker" style="display: none; position: relative; z-index: 1000;">-->
+    <!--<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>-->
+    <!--Мы обнаружили то, что вы используете блокировщик рекламы. На нашем сайте отсуствует реклама, а блокировщик рекламы может вызывать проблемы в работе сайта. Просим Вас добавить наш сайт в исключения. Благодарим за понимание.-->
+<!--</div>-->
+<app>
+    <div id="preloader0">
+        <div class="preloader1"></div>
+        <div class="preloader2"></div>
+    </div>
+</app>
+<div id="connectionsError" style="display: none;">
+    <div style="width:100%;height:100%;background: gray; opacity: .5;position: fixed;top:0;left:0;z-index:10;"></div>
+    <div style="width:100%;position: fixed;top:50%;left:0;z-index:10;text-align: center">
+        <h3>Переподключение</h3>
+        <img src="/public/img/loader3.gif">
+    </div>
+</div>
+
+<!--<script>-->
+    <!--if (window["advMeFull"] != true) {-->
+        <!--document.getElementById('blocker').style.display=null-->
+    <!--}-->
+<!--</script>-->
+
+</body>
+</html>
+
