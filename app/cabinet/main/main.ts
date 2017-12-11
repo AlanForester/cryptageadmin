@@ -35,11 +35,11 @@ export class CabinetMain {
     }
 
     ngOnInit() {
-        this.getData();
-
-        setInterval(()=>{
-            this.getData();
-        },5000)
+        // this.getData();
+        //
+        // setInterval(()=>{
+        //     this.getData();
+        // },5000)
 
     }
 

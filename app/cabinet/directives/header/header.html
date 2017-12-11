@@ -1,55 +1,92 @@
-    <nav class="left-menu">
-        <div class="logo-container"><a href="/" class="logo">
-            <img src="/public/img/logosmall.png" alt="EmpireCPA">
-            <img class="logo-inverse" src="/public/img/logosmall.png" alt="EmpireCPA">
-        </a></div>
-        <div class="left-menu-inner scroll-pane scrolled-to-right">
-            <div style="position: relative; min-width: 1480px; height: 0px;">
-                <div style="position: absolute; top: 18px; right: 10px; width: 400px; color: #b2bed2; font-weight: 600; padding-top: 4px;">
-                    <a href="skype:antonina.lazukina?chat"><i class="icmn-skype"></i> antonina.lazukina</a>, <a href="skype:sakharovrom4n?chat"><i class="icmn-skype"></i> sakharovrom4n</a>
-                    <!--<i class="icmn-telegram"></i> @Kosmos0000-->
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-header">
+        <a class="navbar-brand text-uppercase text-size-large" style="font-size: 20px" href="index.html">Crypla</a>
 
-                </div>
-            </div>
-            <mainMenu></mainMenu>
-        </div>
-    </nav>
-    <nav class="top-menu" ng-class="{'hidden-top-menu': hideTopMenu}">
-        <div class="menu-icon-container hidden-md-up">
-            <div class="animate-menu-button left-menu-toggle">
-                <div></div>
-            </div>
-        </div>
-        <div class="menu">
-            <!--<notifyMenu></notifyMenu>-->
-            <!--<noticesList></noticesList>-->
-            <div *ngIf="!(valutes&&valutes.length)" class="menu-info-block">
-                <div class="right hidden-xs-down"><span class="label label-pill label-success notify-main-bal" data-toggle="dropdown">Баланс: {{cash | numberFormat: "0":"&nbsp;"}} руб.</span></div>
-                <div class="right hidden-xs-down"><span class="label label-pill label-warning notify-main-bal">Холд: {{hold | numberFormat: "0":"&nbsp;"}} руб.</span></div>
-            </div>
-            <div *ngIf="valutes&&valutes.length" class="menu-info-block">
-                <div class="right hidden-xs-down dropdown">
-                    <span class="label label-pill label-success notify-main-bal dropdown-toggle" data-toggle="dropdown">Баланс: {{cash | numberFormat: "0":"&nbsp;"}} руб.</span>
-                    <div class="dropdown-menu dropdown-menu-right background-success" aria-labelledby="" role="menu">
-                        <div *ngFor="let v of valutes" class="dropdown-item color-white">{{v.code}} {{v.cash}}</div>
+        <ul class="nav navbar-nav visible-xs-block">
+            <li><a data-toggle="collapse" data-target="#navbar-mobile"><i class="icon-tree5"></i></a></li>
+            <li><a class="sidebar-mobile-main-toggle"><i class="icon-paragraph-justify3"></i></a></li>
+        </ul>
+    </div>
+
+    <div class="navbar-collapse collapse" id="navbar-mobile">
+        <ul class="nav navbar-nav">
+            <li class="dropdown" style="margin-left: -30px;">
+                <a class="dropdown-toggle" data-toggle="dropdown">
+                    <i class="icon-station" style="margin-right: 7px; margin-top: -3px;"></i>Связь с биржами
+                    <span class="caret"></span>
+                </a>
+
+                <ul class="dropdown-menu">
+                    <li><a class="deutsch"> <span>Poloniex <span class="label bg-success"
+                                                                 style="float:right;">Online</span></span></a></li>
+                    <li><a class="ukrainian"> <span>Bittrex <span class="label bg-success"
+                                                                  style="float:right;">Online</span></span></a></li>
+                    <li><a class="english"> <span>Kraken <span class="label bg-warning"
+                                                               style="float:right;">Offline</span></span></a></li>
+                </ul>
+            </li>
+
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="#"><i class="icon-comment-discussion position-left"></i> Поддержка</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <i class="icon-bell2"></i>
+                    <span class="visible-xs-inline-block position-right">События</span>
+                    <span class="badge bg-warning-400">2</span>
+                </a>
+
+                <div class="dropdown-menu dropdown-content width-350">
+                    <div class="dropdown-content-heading">
+                        События
+                    </div>
+                    <ul class="media-list dropdown-content-body">
+                        <li class="media">
+                            <div class="media-left">
+                                <i class="icon-feed" style="font-size: 32px;"></i>
+                            </div>
+                            <div class="media-body">
+                                <a href="#" class="media-heading">
+                                    <span class="text-semibold">Новый сигнал</span>
+                                    <span class="media-annotation pull-right">04:58</span>
+                                </a>
+                                <span class="text-muted">BTC-ETC растет с космической скоростью вверх</span>
+                            </div>
+                        </li>
+                        <li class="media">
+                            <div class="media-left">
+                                <i class="icon-coins" style="font-size: 32px;"></i>
+                            </div>
+                            <div class="media-body">
+                                <a href="#" class="media-heading">
+                                    <span class="text-semibold">Баланс инвестиций близкок к нулю</span>
+                                    <span class="media-annotation pull-right">12:16</span>
+                                </a>
+                                <span class="text-muted">Пополните баланс или отключите робота</span>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <div class="dropdown-content-footer">
+                        <a href="#" data-popup="tooltip" title="Все события"><i
+                                class="icon-menu display-block"></i></a>
                     </div>
                 </div>
-                <div class="right hidden-xs-down dropdown">
-                    <span class="label label-pill label-warning notify-main-bal dropdown-toggle" data-toggle="dropdown">Холд: {{hold | numberFormat: "0":"&nbsp;"}} руб.</span>
-                    <div class="dropdown-menu dropdown-menu-right background-warning" aria-labelledby="" role="menu">
-                        <div *ngFor="let v of valutes" class="dropdown-item color-white">{{v.code}} {{v.hold}}</div>
-                    </div>
-                </div>
-            </div>
-            <!--<div class="menu-info-block">-->
-                <!--<div class="right hidden-xs-down"><span class="label label-pill notify-main-bal" style="background:#5bc0de;color:#fff;">Бонусы: {{bonus}}<img src="/public/images/moneybag.png" style="height: 20px;margin:-4px 0 -1px 0;"> </span></div>-->
-            <!--</div>-->
-            <div *ngIf="router.url.indexOf('/cabinet/statistics')>=0" class="widthMB">
-                <h2>Статистика</h2>
-            </div>
-            <div *ngIf="router.url.indexOf('/cabinet/offers')>=0" class="left">
-                <h2>Офферы</h2>
-            </div>
-        </div>
-    </nav>
+            </li>
 
+            <li class="dropdown dropdown-user">
+                <a class="dropdown-toggle" data-toggle="dropdown">
+                    <img src="/public/assets/images/placeholder.jpg" alt="">
+                    <span>Алекс</span>
+                    <i class="caret"></i>
+                </a>
+
+                <ul class="dropdown-menu dropdown-menu-right" style="width: 230px;">
+                    <li><a href="#"><i class="icon-user-plus"></i> Профиль</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#"><i class="icon-switch2"></i> Выход</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>

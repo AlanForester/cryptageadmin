@@ -1,44 +1,57 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Limitless - Responsive Web Application Kit by Eugene Kopyov</title>
     <base href="/" />
-    <title></title>
-    <meta name="viewport" content="width=1300, initial-scale=0.25">
 
-    <link href="/public/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="/public/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
-    <link href="/public/css/bootstrap-select.min.css" rel="stylesheet" />
-    <link href="/public/css/chartist.min.css" rel="stylesheet" />
-    <link href="/public/css/daterangepicker.css" rel="stylesheet" />
-    <link href="/public/css/select2.min.css" rel="stylesheet" />
-    <link href="/public/css/main.css" rel="stylesheet" />
+    <!-- Global stylesheets -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet"
+          type="text/css">
+    <link href="/public/assets/css/icons/icomoon/styles.css" rel="stylesheet" type="text/css">
+    <link href="/public/assets/css/icons/fontawesome/styles.min.css" rel="stylesheet" type="text/css">
+    <link href="/public/assets/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="/public/assets/css/core.css" rel="stylesheet" type="text/css">
+    <link href="/public/assets/css/components.css" rel="stylesheet" type="text/css">
+    <link href="/public/assets/css/colors.css" rel="stylesheet" type="text/css">
+    <!-- /global stylesheets -->
 
-    <!--<script src="public/js/adv1.js"></script>-->
+    <!-- Core JS files -->
+    <script type="text/javascript" src="/public/assets/js/plugins/loaders/pace.min.js"></script>
+    <script type="text/javascript" src="/public/assets/js/core/libraries/jquery.min.js"></script>
+    <script type="text/javascript" src="/public/assets/js/core/libraries/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/public/assets/js/plugins/loaders/blockui.min.js"></script>
+    <!-- /core JS files -->
 
+    <!-- Theme JS files -->
+    <script type="text/javascript" src="/public/assets/js/plugins/visualization/d3/d3.min.js"></script>
+    <script type="text/javascript" src="/public/assets/js/plugins/visualization/d3/d3_tooltip.js"></script>
+    <script type="text/javascript" src="/public/assets/js/plugins/forms/styling/switchery.min.js"></script>
+    <script type="text/javascript" src="/public/assets/js/plugins/forms/styling/uniform.min.js"></script>
+    <script type="text/javascript" src="/public/assets/js/plugins/forms/selects/bootstrap_multiselect.js"></script>
+    <script type="text/javascript" src="/public/assets/js/plugins/ui/moment/moment.min.js"></script>
+    <script type="text/javascript" src="/public/assets/js/plugins/pickers/daterangepicker.js"></script>
+    <script type="text/javascript" src="/public/assets/js/plugins/ui/nicescroll.min.js"></script>
+
+    <!--<script type="text/javascript" src="/public/assets/js/core/app.js"></script>-->
+    <!--<script type="text/javascript" src="/public/assets/js/pages/dashboard.js"></script>-->
+    <script type="text/javascript" src="/public/assets/js/pages/layout_fixed_custom.js"></script>
+    <!-- /theme JS files -->
 
     <!-- polyfill(s) for older browsers -->
     <script src="node_modules/core-js/client/shim.min.js"></script>
     <script src="node_modules/zone.js/dist/zone.js"></script>
     <script src="node_modules/systemjs/dist/system.src.js"></script>
-
-    <script src="/public/js/jquery.min.js"></script>
-    <script src="/public/js/bootstrap.min.js"></script>
-    <script src="/public/js/bootstrap-select.min.js"></script>
-    <script src="/public/js/moment.min.js"></script>
-    <script src="/public/js/daterangepicker.js"></script>
-    <script src="/node_modules/clipboard/dist/clipboard.min.js"></script>
-
     <script src="systemjs.config.js"></script>
     <script>
         System.import('app').catch(function (err) { console.error(err); });
     </script>
 </head>
-<body class="menu-top menu-top-compact ng-scope theme-blue colorful-enabled menu-fixed mode-default">
 
-<!--<div class="alert alert-warning" id="blocker" style="display: none; position: relative; z-index: 1000;">-->
-    <!--<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>-->
-    <!--Мы обнаружили то, что вы используете блокировщик рекламы. На нашем сайте отсуствует реклама, а блокировщик рекламы может вызывать проблемы в работе сайта. Просим Вас добавить наш сайт в исключения. Благодарим за понимание.-->
-<!--</div>-->
+<body class="navbar-top">
+
 <app>
     <div id="preloader0">
         <div class="preloader1"></div>
@@ -53,12 +66,5 @@
     </div>
 </div>
 
-<!--<script>-->
-    <!--if (window["advMeFull"] != true) {-->
-        <!--document.getElementById('blocker').style.display=null-->
-    <!--}-->
-<!--</script>-->
-
 </body>
 </html>
-
