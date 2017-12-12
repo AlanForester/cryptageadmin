@@ -388,7 +388,7 @@
             enableFullValueFiltering: false,
             enableClickableOptGroups: false,
             enableCollapsibelOptGroups: false,
-            filterPlaceholder: 'Search',
+            filterPlaceholder: 'Поиск',
             // possible options: 'text', 'value', 'both'
             filterBehavior: 'text',
             includeFilterClearBtn: true,

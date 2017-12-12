@@ -85,6 +85,9 @@ mark {
 small {
   font-size: 80%;
 }
+.nano {
+  font-size: 10px;
+}
 sub,
 sup {
   font-size: 75%;
@@ -3453,6 +3456,15 @@ fieldset[disabled] .btn-link:focus {
   line-height: 1.6666667;
   border-radius: 2px;
 }
+
+.btn-xxs,
+.btn-group-xxs > .btn {
+  padding: 3px 8px;
+  font-size: 12px;
+  line-height: 1.6666667;
+  border-radius: 2px;
+}
+
 .btn-block {
   display: block;
   width: 100%;

@@ -1,12 +1,19 @@
 <!-- Page header -->
-<div class="page-header page-header-default">
+<div class="page-header page-header-default has-cover">
     <div class="page-header-content">
         <div class="page-title">
             <h4><i class="icon-arrow-left52 position-left"></i> Межбиржевой анализ</h4>
         </div>
 
         <div class="heading-elements">
-
+            <div class="heading-btn-group">
+                            <span href="#" class="btn btn-link btn-float has-text link"><i
+                                    class="icon-lifebuoy text-primary"
+                                    style="font-size: 20px;"></i> <span>Поддержка</span></span>
+                <span href="#" class="btn btn-link btn-float has-text link"><i
+                        class="icon-help text-primary"
+                        style="font-size: 20px;"></i> <span>Справка</span></span>
+            </div>
         </div>
     </div>
 
@@ -17,10 +24,10 @@
         </ul>
 
         <ul class="breadcrumb-elements">
-            <li>
-                <div class="checkbox checkbox-right checkbox-switchery switchery-sm">
+            <li style="margin-top: 10px;">
+                <div href="#" class="checkbox-right checkbox-switchery switchery-sm ">
                     <label>
-                        <input type="checkbox" class="switchery" checked="checked">
+                        <input type="checkbox" class="switchery1">
                         Автоматическое обновление данных:
                     </label>
                 </div>
@@ -34,85 +41,130 @@
     <!-- Main charts -->
     <div class="container-detached">
         <div class="content-detached">
-            <div class="col-lg-6 col-md-12">
+            <div class="col-lg-6">
                 <!-- Traffic sources -->
-                <div class="panel panel-flat">
+                <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h6 class="panel-title">Расхождение цен</h6>
+                        <h5 class="panel-title">Разница цен</h5>
                     </div>
-                    <div class="panel-body-accent">
-                        <div class="table">
-                            <table class="table text-nowrap">
-                                <thead>
-                                <tr>
-                                    <th class="col-md-2"></th>
-                                    <th>Пара</th>
-                                    <th class="col-md-2">Покупка</th>
-                                    <th class="col-md-2">Продажа</th>
-                                    <th class="col-md-2">Доход, %</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr *ngFor="let row of diff">
-                                    <td><a href="#"><i
-                                            class="icon-attachment position-left"></i></a>
-                                    </td>
-                                    <td>
-                                        BTC/ETC <a href="#"><i
-                                            class="icon-filter3"></i></a>
-                                    </td>
-                                    <td><span class="text-muted">Poloniex <a href="#"><i
-                                            class="icon-filter3"></i></a></span></td>
-                                    <td><span class="text-muted">Bittrex <a href="#"><i
-                                            class="icon-filter3"></i></a></span></td>
-                                    <td><span class="text-success-600"><i
-                                            class="icon-stats-growth2 position-left"></i> 2.43%</span>
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="position-relative"></div>
+                    <table class="table datatable-div-bellow">
+                        <thead class="bg-slate-800">
+                        <tr class="border-solid 2px">
+                            <th>Пара</th>
+                            <th>Покупка</th>
+                            <th>Продажа</th>
+                            <th>Доход, %</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr *ngFor="let row of diff">
+                            <td>
+                                <button type="button" data-popup="tooltip"
+                                        data-original-title="Добавить в фильтры"
+                                        class="btn border-bottom-orange-800 text-orange-800 btn-link btn-xxs">
+                                    BTC/USD<b><i class="icon-filter4 position-right"></i></b></button>
+                            </td>
+                            <td>
+                                <button type="button" data-popup="tooltip"
+                                        data-original-title="Добавить в фильтры"
+                                        class="btn border-bottom-slate-800 text-slate-800 btn-link btn-xxs">
+                                    Poloniex<b><i class="icon-filter4 position-right"></i></b>
+                                </button>
+                            </td>
+                            <td>
+                                <button type="button" data-popup="tooltip"
+                                        data-original-title="Добавить в фильтры"
+                                        class="btn border-bottom-slate-800 text-slate-800 btn-link btn-xxs">
+                                    Bittrex<b><i class="icon-filter4 position-right"></i></b>
+                                </button>
+                            </td>
+                            <td><span class="text-success-600"><i
+                                    class="icon-stats-growth2 position-left"></i> 2.43%</span>
+                            </td>
+                            <td><span class="link" data-popup="tooltip"
+                                      data-original-title="Закрепить запись"><i
+                                    class="icon-arrow-right16"></i></span>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
                 </div>
+                <div class="position-relative"></div>
             </div>
-            <div class="col-lg-6 col-md-12">
-                <div class="panel panel-flat">
+            <div class="col-lg-6">
+                <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h6 class="panel-title">Закрепленные записи</h6>
-                    </div>
-                    <div class="panel-body-accent">
-                        <div class="table">
-                            <table class="table text-nowrap">
-                                <thead>
-                                <tr>
-                                    <th>Пара</th>
-                                    <th class="col-md-2">Покупка</th>
-                                    <th class="col-md-2">Продажа</th>
-                                    <th class="col-md-2">Доход, %</th>
-                                    <th class="col-md-2"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr *ngFor="let row of diff">
-                                    <td>
-                                        BTC/ETC
-                                    </td>
-                                    <td><span class="text-muted">Poloniex</span></td>
-                                    <td><span class="text-muted">Bittrex</span></td>
-                                    <td><span class="text-success-600"><i
-                                            class="icon-stats-growth2 position-left"></i> 2.43%</span>
-                                    </td>
-                                    <td><a href="#"><i
-                                            class="icon-trash position-left"></i></a>
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
+                        <h5 class="panel-title">Закрепленные записи</h5>
+                        <div class="heading-elements">
+                            <ul class="list-inline ">
+                                <li><span class="btn btn-link link" data-popup="tooltip"
+                                          data-original-title="Добавить на главную">
+                                                    <i class="glyphicon glyphicon-magnet"></i>
+                                                </span>
+                                </li>
+                            </ul>
                         </div>
                     </div>
-                    <div class="position-relative"></div>
+                    <table class="table datatable-div-bellow-paperclip">
+                        <thead class="bg-slate-800">
+                        <tr class="border-solid 2px">
+                            <th>#</th>
+                            <th>Пара</th>
+                            <th>Покупка</th>
+                            <th>Продажа</th>
+                            <th>Доход, %</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr class="cursor-move">
+                            <td>1</td>
+                            <td>
+                                BTC/ETC
+                            </td>
+                            <td><span class="text-muted">Poloniex</span></td>
+                            <td><span class="text-muted">Bittrex</span></td>
+                            <td><span class="text-success-600"><i
+                                    class="icon-stats-growth2 position-left"></i>  2.43% </span>
+                            </td>
+                            <td><span class="link" data-popup="tooltip" data-original-title="Удалить"><i
+                                    class="icon-trash text-danger-800 position-left"></i></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>
+                                BTC/ETC
+                            </td>
+                            <td><span class="text-muted">Poloniex</span></td>
+                            <td><span class="text-muted">Bittrex</span></td>
+                            <td><span class="text-success-600"><i
+                                    class="icon-stats-growth2 position-left"></i>  5.43% </span>
+                            </td>
+                            <td><span class="link" data-popup="tooltip" data-original-title="Удалить"><i
+                                    class="icon-trash text-danger-800 position-left"></i></span>
+                            </td>
+                        </tr>
+                        <tr *ngFor="let row of diff">
+                            <td>2</td>
+                            <td>
+                                BTC/ETC
+                            </td>
+                            <td><span class="text-muted">Poloniex</span></td>
+                            <td><span class="text-muted">Bittrex</span></td>
+                            <td><span class="text-success-600"><i
+                                    class="icon-stats-growth2 position-left"></i>  5.43% </span>
+                            </td>
+                            <td><span class="link" data-popup="tooltip" data-original-title="Удалить"><i
+                                    class="icon-trash text-danger-800 position-left"></i></span>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
                 </div>
+                <div class="position-relative"></div>
+                <!--<pre class="pre-scrollable"><code id="event-result">// Event result</code></pre>-->
             </div>
         </div>
     </div>
@@ -125,28 +177,33 @@
                         <span><i class="icon-filter3"></i> Фильтры</span>
                         <ul class="icons-list">
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle text-blue-400" data-toggle="dropdown"
-                                   aria-expanded="false">Загрузить <i class="fa fa-caret-down"></i></a>
+                                            <span class="dropdown-toggle text-blue-400 link " data-toggle="dropdown">Список <span class="badge badge-primary">2 <i
+                                                    class="fa fa-caret-down"></i></span></span>
                                 <ul class="dropdown-menu dropdown-menu-right">
                                     <li class="disabled"><a href="#">Фильтров еще нет</a></li>
-                                    <li><a href="#">Без говна</a></li>
-                                    <li><a href="#">Эфир на всех</a></li>
+                                    <li><span class="btn btn-link btn-flat">Без говна</span>
+                                        <i class="icon-trash text-danger-600 filters-delete" data-popup="tooltip"
+                                           data-original-title="Удалить"></i>
+
+                                    </li>
+                                    <li><span class="btn btn-link btn-flat">Эфир на всех</span>
+                                        <i class="icon-trash text-danger-600 filters-delete" data-popup="tooltip"
+                                           data-original-title="Удалить"></i>
+                                    </li>
                                 </ul>
                             </li>
                         </ul>
                     </div>
                     <div class="category-content">
+                        <form [formGroup]="form">
                         <div class="form-group">
                             <label>По биржам</label>
-                            <span class="label label-flat label-info" style="font-size: 8px;">
-                                            Показаны все (Выключено)
-                                        </span>
-                            <div class="input-group">
-											<span class="input-group-addon">
-												<input type="checkbox" class="styled" name="input-addon-checkbox">
-											</span>
-                                <div class="multi-select-full">
-                                    <select class="multiselect-select-all-filtering"
+                            <div class="input-group has-warning">
+											<span class="input-group-addon switchery-xs">
+													<input formControlName="exchangeEnable" type="checkbox" class="switchery">
+                                            </span>
+                                <div class="multi-select-full form-control">
+                                    <select formControlName="exchange" class="multiselect-select-all-filtering"
                                             data-non-selected-text="Биржи не выбраны"
                                             data-select-all-text="Выбрать все"
                                             multiple="multiple">
@@ -156,19 +213,21 @@
                                         <option value="mushrooms">Bittrex</option>
                                     </select>
                                 </div>
+                                <div *ngIf="!form.value.exchangeEnable" class="form-control-feedback">
+                                    <i class="icon-notification2"></i>
+                                </div>
+                                <span *ngIf="!form.value.exchangeEnable" class="help-block">Фильтр не включен</span>
                             </div>
+
                         </div>
                         <div class="form-group">
                             <label>По паре </label>
-                            <span class="label label-flat label-info" style="font-size: 8px;">
-                                            Показаны все (Выключено)
-                                        </span>
                             <div class="input-group">
-                                        <span class="input-group-addon">
-                                            <input type="checkbox" class="styled">
-                                        </span>
+                                        <span class="input-group-addon switchery-xs">
+													<input formControlName="pairEnable" type="checkbox" class="switchery" style="display: none;">
+                                            </span>
                                 <div class="multi-select-full">
-                                    <select class="multiselect-select-all-filtering"
+                                    <select formControlName="pair" class="multiselect-select-all-filtering"
                                             data-non-selected-text="Пары не выбраны"
                                             data-select-all-text="Выбрать все" multiple="multiple">
                                         <option value="cheese">BTC/ETH</option>
@@ -177,18 +236,20 @@
                                         <option value="mushrooms">BTC/XLM</option>
                                     </select>
                                 </div>
+                                <div class="form-control-feedback">
+                                    <i class="icon-notification2"></i>
+                                </div>
+                                <span class="help-block">Фильтр не включен</span>
                             </div>
                         </div>
                         <div class="form-group">
                             <label>По активу</label>
-                            <span class="label label-flat label-info" style="font-size: 8px;">
-                                            Показаны все (Выключено)</span>
                             <div class="input-group">
-                                        <span class="input-group-addon">
-                                            <input type="checkbox" class="styled">
-                                        </span>
+                                        <span class="input-group-addon switchery-xs">
+													<input formControlName="valuteEnable" type="checkbox" class="switchery" style="display: none;">
+                                            </span>
                                 <div class="multi-select-full">
-                                    <select class="multiselect-select-all-filtering"
+                                    <select formControlName="valute" class="multiselect-select-all-filtering"
                                             data-non-selected-text="Активы не выбраны"
                                             data-select-all-text="Выбрать все" multiple="multiple">
                                         <option value="cheese">Etherium</option>
@@ -197,9 +258,13 @@
                                         <option value="mushrooms">Doge</option>
                                     </select>
                                 </div>
+                                <div class="form-control-feedback">
+                                    <i class="icon-notification2"></i>
+                                </div>
+                                <span class="help-block">Фильтр не включен</span>
                             </div>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group z0">
                             <label class="text-blue-400">Сохранить фильтр</label>
                             <div class="input-group">
                                 <input type="text" class="form-control" placeholder="Название">
@@ -209,15 +274,11 @@
 												</span>
                             </div>
                         </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<!-- Footer -->
-<div class="footer text-muted">
-    &copy; 2015. <a href="#">Limitless Web App Kit</a> by <a href="http://themeforest.net/user/Kopyov"
-                                                             target="_blank">Eugene Kopyov</a>
-</div>
-<!-- /footer -->
+<!-- /content area -->
