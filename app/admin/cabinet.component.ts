@@ -5,11 +5,11 @@ declare var jQuery: any;
 @Component({
     moduleId: module.id.toString(),
     selector: 'cabinet',
-    templateUrl: '/app/cabinet/cabinet.component.html',
+    templateUrl: '/app/admin/cabinet.component.html',
 
 })
 
-export class Cabinet {
+export class AdminComponent {
     constructor() {}
     ngOnInit() {
         // Calculate min height

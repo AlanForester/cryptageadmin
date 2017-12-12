@@ -18,8 +18,7 @@
   "homepage": "",
   "description": "",
   "keywords": [
-    "CPA",
-    "EmpireCPA"
+    "CRYPLA"
   ],
   "dependencies": {
     "@angular/common": "~2.4.0",

@@ -1,9 +1,8 @@
 // import 'angular2-meteor-polyfills';
 // import {enableProdMode} from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-
-import { EmpireCPAModule } from './app.module';
+import {CRYPLAModule} from "./app.module";
 
 // enableProdMode();
 const platform = platformBrowserDynamic();
-platform.bootstrapModule(EmpireCPAModule);
+platform.bootstrapModule(CRYPLAModule);

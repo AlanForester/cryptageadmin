@@ -20,27 +20,16 @@ export const STATUS_ORDER_CHANGE_STATUS = 4;
 
 @Component({
     moduleId: module.id.toString(),
-    selector: '.cabinetMain.dashboard-container',
-    templateUrl: '/app/cabinet/main/main.html',
+    selector: 'adminMain',
+    templateUrl: '/app/admin/main/main.html',
     providers: [MainService],
 })
 
-export class CabinetMain {
+export class AdminMain {
     diff: any[] = [];
-
-    form: FormGroup;
 
     constructor(private router: Router, title: Title, private service: MainService) {
         title.setTitle("Главная - EmpireCPA");
-
-        this.form = new FormGroup({
-            exchangeEnable: new FormControl(false),
-            exchange: new FormControl(null),
-            pairEnable: new FormControl(false),
-            pair: new FormControl(null),
-            valuteEnable: new FormControl(false),
-            valute: new FormControl(null),
-        })
 
         jQuery('#preloader').show();
     }
@@ -51,10 +40,6 @@ export class CabinetMain {
         // setInterval(()=>{
         //     this.getData();
         // },5000)
-
-        this.form.valueChanges.subscribe((val)=>{
-            console.log(val)
-        })
     }
 
     ngOnDestroy() {

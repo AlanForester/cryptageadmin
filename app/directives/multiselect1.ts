@@ -37,7 +37,7 @@ export class Multiselect1Directive {
             onSelectAll: () => {
                 jQuery.uniform.update();
             },
-            onChange: (option, checked, select) => {
+            onChange: (option:any, checked:any, select:any) => {
                 this.control.control.patchValue(jQuery(option).val());
             }
         });

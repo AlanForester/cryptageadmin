@@ -6,18 +6,9 @@ import {Router} from "@angular/router";
 @Component({
     moduleId: module.id.toString(),
     selector: 'header',
-    templateUrl: '/app/cabinet/directives/header/header.html',
+    templateUrl: '/app/admin/directives/header/header.html',
 })
-export class CabinetHeaderDirective {
-    cash = 0;
-    hold = 0;
-    bonus = 0;
-
-    valute: string;
-    user: User;
-
-    valutes: any[];
-
+export class AdminHeaderDirective {
     constructor(public router: Router) {
 
     }

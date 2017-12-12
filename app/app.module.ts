@@ -7,9 +7,9 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {Http, HttpModule} from '@angular/http';
 
 
-import {EmpireCPA} from './app.component';
+import {CRYPLA} from './app.component';
 import {routes} from './app.routes';
-import {MAIN_DECLARATIONS} from "./cabinet/index";
+import {MAIN_DECLARATIONS} from "./admin/index";
 import {PIPES_DECLARATIONS} from "./pipes/index";
 import {DIRECTIVES_DECLARATIONS} from "./directives/index";
 import {ConfigService} from "./_services/config.service";
@@ -26,11 +26,10 @@ import {BaseService} from "./_services/base.service";
         RouterModule.forRoot(routes)
     ],
     declarations: [
-        EmpireCPA,
+        CRYPLA,
         ...PIPES_DECLARATIONS,
         ...MAIN_DECLARATIONS,
         ...DIRECTIVES_DECLARATIONS
-
     ],
     providers: [
         Title,
@@ -39,8 +38,8 @@ import {BaseService} from "./_services/base.service";
         BaseService
     ],
     bootstrap: [
-        EmpireCPA
+        CRYPLA
     ]
 })
-export class EmpireCPAModule {
+export class CRYPLAModule {
 }

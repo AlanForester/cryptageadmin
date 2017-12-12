@@ -6,10 +6,7 @@ declare var jQuery:any;
     selector: 'app',
     template: '<router-outlet></router-outlet>',
 })
-
-
-export class EmpireCPA {
-
+export class CRYPLA {
     constructor() {}
 
     ngOnInit() {

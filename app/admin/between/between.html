@@ -198,7 +198,7 @@
                         <form [formGroup]="form">
                         <div class="form-group">
                             <label>По биржам</label>
-                            <div class="input-group has-warning">
+                            <div class="input-group" [ngClass]="{'has-warning':!form.value.exchangeEnable}">
 											<span class="input-group-addon switchery-xs">
 													<input formControlName="exchangeEnable" type="checkbox" class="switchery">
                                             </span>

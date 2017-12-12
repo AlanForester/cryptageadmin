@@ -1,20 +1,14 @@
 import { Route } from '@angular/router';
-
-import {Cabinet} from "./cabinet/cabinet.component";
-import {cabinetRoutes} from "./cabinet/cabinet.routes";
-
-
+import {AdminComponent} from "./admin/cabinet.component";
+import {adminRoutes} from "./admin/cabinet.routes";
 
 export const routes: Route[] = [
     {
-        path: 'cabinet',
-        component: Cabinet,
-        children: cabinetRoutes,
-        // canActivate: [AuthGuard],
-        // canActivateChild: [AuthGuard]
+        path: 'admin',
+        component: AdminComponent,
+        children: adminRoutes
     }, {
         path: '**',
-        redirectTo: 'cabinet'
+        redirectTo: 'admin'
     }
-
 ];
