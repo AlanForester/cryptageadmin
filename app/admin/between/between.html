@@ -60,27 +60,20 @@
                         <tbody>
                         <tr *ngFor="let row of diff">
                             <td>
-                                <button type="button" data-popup="tooltip"
-                                        data-original-title="Добавить в фильтры"
-                                        class="btn border-bottom-orange-800 text-orange-800 btn-link btn-xxs">
-                                    BTC/USD<b><i class="icon-filter4 position-right"></i></b></button>
+                                <button type="button" data-popup="tooltip" data-original-title="Добавить в фильтры"
+                                        class="btn border-bottom-orange-800 text-orange-800 btn-link btn-xxs">{{row.pair}}<b><i class="icon-filter4 position-right"></i></b></button>
                             </td>
                             <td>
-                                <button type="button" data-popup="tooltip"
-                                        data-original-title="Добавить в фильтры"
-                                        class="btn border-bottom-slate-800 text-slate-800 btn-link btn-xxs">
-                                    Poloniex<b><i class="icon-filter4 position-right"></i></b>
+                                <button type="button" data-popup="tooltip" data-original-title="Добавить в фильтры"
+                                        class="btn border-bottom-slate-800 text-slate-800 btn-link btn-xxs">{{row.ex1_name}}<b><i class="icon-filter4 position-right"></i></b>
                                 </button>
                             </td>
                             <td>
-                                <button type="button" data-popup="tooltip"
-                                        data-original-title="Добавить в фильтры"
-                                        class="btn border-bottom-slate-800 text-slate-800 btn-link btn-xxs">
-                                    Bittrex<b><i class="icon-filter4 position-right"></i></b>
+                                <button type="button" data-popup="tooltip" data-original-title="Добавить в фильтры"
+                                        class="btn border-bottom-slate-800 text-slate-800 btn-link btn-xxs">{{row.ex2_name}}<b><i class="icon-filter4 position-right"></i></b>
                                 </button>
                             </td>
-                            <td><span class="text-success-600"><i
-                                    class="icon-stats-growth2 position-left"></i> 2.43%</span>
+                            <td><span class="text-success-600"><i class="icon-stats-growth2 position-left"></i> {{row.ex1_name | numberFormat:'2'}}%</span>
                             </td>
                             <td><span class="link" data-popup="tooltip"
                                       data-original-title="Закрепить запись"><i

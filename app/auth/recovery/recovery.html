@@ -1,0 +1,35 @@
+<div class="control">
+    <div class="col-md-6 col-md-offset-3 panel panel-default">
+
+        <div class="panel-heading">
+            <h3>Восстановление пароля</h3>
+        </div>
+        <div class="panel-body container">
+            <form [formGroup]="form" #f="ngForm" (submit)="onSubmit($event)" class="form-horizontal">
+                <div *ngIf="errorCode == 200">
+                    <p class="alert alert-success">На указанный вами Email была отправлена инструкция по
+                        восстановлению пароля.</p>
+                </div>
+                <div class="form-group" [ngClass]="{ 'has-error': getHasError('email') }">
+                    <label for="email" class="col-md-4 col-xs-5 control-label">Email адрес</label>
+                    <div class="col-md-8 col-xs-7">
+                        <input formControlName="email" type="email" class="form-control" id="email"
+                               placeholder="Email">
+                    </div>
+                </div>
+                <div *ngIf="errorCode == 403">
+                    <p class="alert alert-danger">Пользователя с таким Email не существует.</p>
+                </div>
+                <div class="col-md-4 col-xs-4">
+                    <button type="submit" class="btn btn-primary" [disabled]="!f.valid">Отправить</button>
+                </div>
+                <div class="col-md-8 col-xs-8 text-right">
+                    <button [routerLink]="['/auth/login']" type="button" class="btn btn-link btn-xs">Войти</button>
+                    <button [routerLink]="['/auth/register']" type="button" class="btn btn-link btn-xs">
+                        Регистрация
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
