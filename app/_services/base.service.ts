@@ -4,6 +4,7 @@ import {Observable} from 'rxjs';
 import 'rxjs/add/operator/map'
 import 'rxjs/add/operator/catch';
 import {ConfigService} from "./config.service";
+import {AuthenticationService} from "./authentication.service";
 
 declare var jQuery: any;
 
@@ -13,14 +14,13 @@ export class BaseService {
 
     error:boolean = false;
 
-    // constructor(private http: Http, private authenticationService: AuthenticationService, private cfg: ConfigService) {}
-    constructor(private http: Http, private cfg: ConfigService) {}
+    constructor(private http: Http, private authenticationService: AuthenticationService, private cfg: ConfigService) {}
 
     httpPost(api: string, data: any): Observable<any> {
 
         let headers = new Headers({
             'Content-Type': 'application/json',
-            // 'Authorization': this.authenticationService.token
+            'Authorization': this.authenticationService.token
         });
         let options = new RequestOptions({headers: headers});
 
@@ -37,9 +37,9 @@ export class BaseService {
                 console.log(error)
                 let errMsg: string;
 
-                // if (error.status == 401) {
-                //     this.authenticationService.logout();
-                // }
+                if (error.status == 401) {
+                    this.authenticationService.logout();
+                }
 
                 if (error.status == 0) {
                     this.error = true;

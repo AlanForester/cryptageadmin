@@ -5,12 +5,12 @@ import 'rxjs/add/operator/map'
 import {BaseService} from "./base.service";
 
 @Injectable()
-export class MainService {
+export class BetweenService {
 
     constructor(private BS: BaseService) {}
 
-    getMainPage(): Observable<any> {
-        return this.BS.httpPost('/api', {})
+    getDiffs(): Observable<any> {
+        return this.BS.httpPost('/user/api', {})
             .map((response: Response) => {
                 // console.log(response)
                 let res = response.json();

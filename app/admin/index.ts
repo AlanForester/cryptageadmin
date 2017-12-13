@@ -3,7 +3,7 @@ import {AdminMain} from "./main/main";
 import {AdminBetween} from "./between/between";
 import {DIRECTIVES_DECLARATIONS} from "./directives/index";
 
-export const MAIN_DECLARATIONS = [
+export const ADMIN_DECLARATIONS = [
     AdminComponent,
     AdminMain,
     AdminBetween,

@@ -1,0 +1,56 @@
+<!-- Page container -->
+<div class="page-container">
+
+    <!-- Page content -->
+    <div class="page-content">
+
+        <!-- Main content -->
+        <div class="content-wrapper">
+
+            <!-- Simple login form -->
+            <form [formGroup]="form" #f="ngForm" (submit)="onSubmit($event)" class="form-horizontal">
+                <div class="panel panel-body login-form">
+                    <div class="text-center">
+                        <div class="icon-object border-slate-300 text-slate-300"><i class="icon-reading"></i></div>
+                        <h5 class="content-group">Авторизация</h5>
+                    </div>
+
+                    <div class="form-group has-feedback has-feedback-left">
+                        <input formControlName="userlogin" type="text" class="form-control" placeholder="Username">
+                        <div class="form-control-feedback">
+                            <i class="icon-user text-muted"></i>
+                        </div>
+                    </div>
+
+                    <div class="form-group has-feedback has-feedback-left">
+                        <input formControlName="password" type="password" class="form-control" placeholder="Password">
+                        <div class="form-control-feedback">
+                            <i class="icon-lock2 text-muted"></i>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <span *ngIf="error" class="text-danger">{{error}}</span>
+                    </div>
+
+                    <div class="form-group">
+                        <button [disabled]="!f.valid" type="submit" class="btn btn-primary btn-block">Sign in <i class="icon-circle-right2 position-right"></i></button>
+                    </div>
+
+                    <div class="text-center">
+                        <a [routerLink]="['/auth/recovery']">Забыли пароль?</a>
+                        <a [routerLink]="['/auth/register']">Регистрация</a>
+                    </div>
+                </div>
+            </form>
+            <!-- /simple login form -->
+
+        </div>
+        <!-- /main content -->
+
+    </div>
+    <!-- /page content -->
+
+</div>
+<!-- /page container -->
+

@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {ReactiveService} from "../../../_services/reactive.service";
 
 @Component({
     moduleId: module.id.toString(),
@@ -7,6 +8,13 @@ import {Component} from '@angular/core';
 })
 
 export class UserMenuDirective {
-    constructor() {
+    public user: any;
+    constructor(RS: ReactiveService) {
+        RS.startUserData()
+        let s = RS.userData.subscribe(
+            res => {
+                console.log(res)
+                this.user = res;
+            });
     }
 }

@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {ReactiveService} from "../_services/reactive.service";
 
 declare var jQuery: any;
 
@@ -6,11 +7,11 @@ declare var jQuery: any;
     moduleId: module.id.toString(),
     selector: 'cabinet',
     templateUrl: '/app/admin/cabinet.component.html',
-
 })
 
 export class AdminComponent {
     constructor() {}
+
     ngOnInit() {
         // Calculate min height
         function containerHeight() {
