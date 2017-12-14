@@ -35,6 +35,7 @@ export class AdminMain {
     }
 
     ngOnInit() {
+        jQuery('#preloader').hide();
         // this.getData();
         //
         // setInterval(()=>{
@@ -45,16 +46,16 @@ export class AdminMain {
     ngOnDestroy() {
     }
 
-    getData() {
-        let s1 = this.service.getMainPage().subscribe(
-            res => {
-                console.log('getMainPage', res);
-                this.diff = res;
-            },
-            error => {
-                console.log(error)
-            }
-        );
-    }
+    // getData() {
+    //     let s1 = this.service.getMainPage().subscribe(
+    //         res => {
+    //             console.log('getMainPage', res);
+    //             this.diff = res;
+    //         },
+    //         error => {
+    //             console.log(error)
+    //         }
+    //     );
+    // }
 
 }

@@ -612,81 +612,81 @@ $(function () {
     $('[data-popup="tooltip"]').tooltip({HTML: true});
 
 
-    // Table setup
-    // ------------------------------
-
-    // Setting datatable defaults
-    $.extend( $.fn.dataTable.defaults, {
-        autoWidth: false,
-        dom: '<"datatable-header"fl><"datatable-scroll-wrap"t><"datatable-footer"ip>',
-        language: {
-            search: '<span>Filter:</span> _INPUT_',
-            lengthMenu: '<span>Show:</span> _MENU_',
-            paginate: { 'first': 'First', 'last': 'Last', 'next': '&rarr;', 'previous': '&larr;' }
-        }
-        // drawCallback: function () {
-        //     $(this).find('tbody tr').slice(-3).find('.dropdown, .btn-group').addClass('dropup');
-        // },
-        // preDrawCallback: function() {
-        //     $(this).find('tbody tr').slice(-3).find('.dropdown, .btn-group').removeClass('dropup');
-        // }
-    });
-    // Save state after reorder
-
-    $('.datatable-div-inside').DataTable({
-        dom: '<"datatable-scroll-wrap"t>',
-        columnDefs: [
-            {targets: [0,1,3], orderable: true, visible: true},
-            {targets: [2,4], orderable: false}
-        ]
-    });
-
-    var table = $('.datatable-div-bellow-paperclip').DataTable({
-        rowReorder: {
-            selector: 'td:nth-child(1),td:nth-child(2),td:nth-child(3),td:nth-child(4)'
-        },
-        dom: '<"datatable-scroll-wrap"t>',
-        columnDefs: [
-            {targets: 0, orderable: true, visible: false },
-            {targets: [1,2,3,4], orderable: true, visible: true},
-            {targets: 5, orderable: false, visible: true }
-        ],
-        "columns": [
-            { className: "cursor-move" },
-            { className: "cursor-move" },
-            { className: "cursor-move" },
-            { className: "cursor-move" },
-            { className: "cursor-move" },
-            null
-        ]
-    });
-
-    console.log(table)
-    // Setup event
-    table.on('row-reorder', function (e, diff, edit) {
-        var result = 'Reorder started on row: ' + edit.triggerRow.data()[1] + '<br>';
-
-        for (var i = 0, ien = diff.length; i < ien; i++) {
-            var rowData = table.row(diff[i].node).data();
-
-            result += rowData[1] + ' updated to be in position ' +
-                diff[i].newData + ' (was ' + diff[i].oldData + ')<br>';
-        }
-
-        $('#event-result').html('Event result:<br>' + result);
-    });
-
-    // External table additions
-    // ------------------------------
-
-    // Add placeholder to the datatable filter option
-    $('.dataTables_filter input[type=search]').attr('placeholder', 'Type to filter...');
-
-
-    // Enable Select2 select for the length option
-    $('.dataTables_length select').select2({
-        minimumResultsForSearch: Infinity,
-        width: 'auto'
-    });
+    // // Table setup
+    // // ------------------------------
+    //
+    // // Setting datatable defaults
+    // $.extend( $.fn.dataTable.defaults, {
+    //     autoWidth: false,
+    //     dom: '<"datatable-header"fl><"datatable-scroll-wrap"t><"datatable-footer"ip>',
+    //     language: {
+    //         search: '<span>Filter:</span> _INPUT_',
+    //         lengthMenu: '<span>Show:</span> _MENU_',
+    //         paginate: { 'first': 'First', 'last': 'Last', 'next': '&rarr;', 'previous': '&larr;' }
+    //     }
+    //     // drawCallback: function () {
+    //     //     $(this).find('tbody tr').slice(-3).find('.dropdown, .btn-group').addClass('dropup');
+    //     // },
+    //     // preDrawCallback: function() {
+    //     //     $(this).find('tbody tr').slice(-3).find('.dropdown, .btn-group').removeClass('dropup');
+    //     // }
+    // });
+    // // Save state after reorder
+    //
+    // $('.datatable-div-inside').DataTable({
+    //     dom: '<"datatable-scroll-wrap"t>',
+    //     columnDefs: [
+    //         {targets: [0,1,3], orderable: true, visible: true},
+    //         {targets: [2,4], orderable: false}
+    //     ]
+    // });
+    //
+    // var table = $('.datatable-div-bellow-paperclip').DataTable({
+    //     rowReorder: {
+    //         selector: 'td:nth-child(1),td:nth-child(2),td:nth-child(3),td:nth-child(4)'
+    //     },
+    //     dom: '<"datatable-scroll-wrap"t>',
+    //     columnDefs: [
+    //         {targets: 0, orderable: true, visible: false },
+    //         {targets: [1,2,3,4], orderable: true, visible: true},
+    //         {targets: 5, orderable: false, visible: true }
+    //     ],
+    //     "columns": [
+    //         { className: "cursor-move" },
+    //         { className: "cursor-move" },
+    //         { className: "cursor-move" },
+    //         { className: "cursor-move" },
+    //         { className: "cursor-move" },
+    //         null
+    //     ]
+    // });
+    //
+    // console.log(table)
+    // // Setup event
+    // table.on('row-reorder', function (e, diff, edit) {
+    //     var result = 'Reorder started on row: ' + edit.triggerRow.data()[1] + '<br>';
+    //
+    //     for (var i = 0, ien = diff.length; i < ien; i++) {
+    //         var rowData = table.row(diff[i].node).data();
+    //
+    //         result += rowData[1] + ' updated to be in position ' +
+    //             diff[i].newData + ' (was ' + diff[i].oldData + ')<br>';
+    //     }
+    //
+    //     $('#event-result').html('Event result:<br>' + result);
+    // });
+    //
+    // // External table additions
+    // // ------------------------------
+    //
+    // // Add placeholder to the datatable filter option
+    // $('.dataTables_filter input[type=search]').attr('placeholder', 'Type to filter...');
+    //
+    //
+    // // Enable Select2 select for the length option
+    // $('.dataTables_length select').select2({
+    //     minimumResultsForSearch: Infinity,
+    //     width: 'auto'
+    // });
 
 });

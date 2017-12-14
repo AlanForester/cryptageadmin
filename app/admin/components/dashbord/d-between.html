@@ -1,0 +1,86 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h5 class="panel-title">Закрепленные записи</h5>
+        <div class="heading-elements">
+            <ul class="list-inline ">
+                <li><span class="btn btn-link link" data-popup="tooltip"
+                          data-original-title="Добавить на главную">
+                                                    <i class="glyphicon glyphicon-magnet"></i>
+                                                </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <table class="table datatable-div-bellow-paperclip">
+        <thead class="bg-slate-800">
+        <tr class="border-solid 2px">
+            <th>#</th>
+            <th>Пара</th>
+            <th>Покупка</th>
+            <th>Продажа</th>
+            <th>Доход, %</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="cursor-move">
+            <td>1</td>
+            <td>
+                BTC/ETC
+            </td>
+            <td><span class="text-muted">Poloniex1</span></td>
+            <td><span class="text-muted">Bittrex</span></td>
+            <td><span class="text-success-600"><i
+                    class="icon-stats-growth2 position-left"></i>  2.43% </span>
+            </td>
+            <td><span class="link" data-popup="tooltip" data-original-title="Удалить"><i
+                    class="icon-trash text-danger-800 position-left"></i></span>
+            </td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>
+                BTC/ETC
+            </td>
+            <td><span class="text-muted">Poloniex2</span></td>
+            <td><span class="text-muted">Bittrex</span></td>
+            <td><span class="text-success-600"><i
+                    class="icon-stats-growth2 position-left"></i>  5.43% </span>
+            </td>
+            <td><span class="link" data-popup="tooltip" data-original-title="Удалить"><i
+                    class="icon-trash text-danger-800 position-left"></i></span>
+            </td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>
+                BTC/ETC
+            </td>
+            <td><span class="text-muted">Poloniex3</span></td>
+            <td><span class="text-muted">Bittrex</span></td>
+            <td><span class="text-success-600"><i
+                    class="icon-stats-growth2 position-left"></i>  5.43% </span>
+            </td>
+            <td><span class="link" data-popup="tooltip" data-original-title="Удалить"><i
+                    class="icon-trash text-danger-800 position-left"></i></span>
+            </td>
+        </tr>
+        <tr *ngFor="let row of rows">
+            <td>2</td>
+            <td>
+                BTC/ETC
+            </td>
+            <td><span class="text-muted">Poloniex</span></td>
+            <td><span class="text-muted">Bittrex</span></td>
+            <td><span class="text-success-600"><i
+                    class="icon-stats-growth2 position-left"></i>  5.43% </span>
+            </td>
+            <td><span class="link" data-popup="tooltip" data-original-title="Удалить"><i
+                    class="icon-trash text-danger-800 position-left"></i></span>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div class="position-relative"></div>
+<!--<pre class="pre-scrollable"><code id="event-result">// Event result</code></pre>-->

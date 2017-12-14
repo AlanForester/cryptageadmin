@@ -58,22 +58,22 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr *ngFor="let row of diff">
+                        <tr *ngFor="let row of rows">
                             <td>
                                 <button type="button" data-popup="tooltip" data-original-title="Добавить в фильтры"
-                                        class="btn border-bottom-orange-800 text-orange-800 btn-link btn-xxs">{{row.pair}}<b><i class="icon-filter4 position-right"></i></b></button>
+                                        class="btn border-bottom-orange-800 text-orange-800 btn-link btn-xxs">{{row.p_name}}<b><i class="icon-filter4 position-right"></i></b></button>
                             </td>
                             <td>
                                 <button type="button" data-popup="tooltip" data-original-title="Добавить в фильтры"
-                                        class="btn border-bottom-slate-800 text-slate-800 btn-link btn-xxs">{{row.ex1_name}}<b><i class="icon-filter4 position-right"></i></b>
+                                        class="btn border-bottom-slate-800 text-slate-800 btn-link btn-xxs">{{row.e1_name}}<b><i class="icon-filter4 position-right"></i></b>
                                 </button>
                             </td>
                             <td>
                                 <button type="button" data-popup="tooltip" data-original-title="Добавить в фильтры"
-                                        class="btn border-bottom-slate-800 text-slate-800 btn-link btn-xxs">{{row.ex2_name}}<b><i class="icon-filter4 position-right"></i></b>
+                                        class="btn border-bottom-slate-800 text-slate-800 btn-link btn-xxs">{{row.e2_name}}<b><i class="icon-filter4 position-right"></i></b>
                                 </button>
                             </td>
-                            <td><span class="text-success-600"><i class="icon-stats-growth2 position-left"></i> {{row.ex1_name | numberFormat:'2'}}%</span>
+                            <td><span class="text-success-600"><i class="icon-stats-growth2 position-left"></i> {{row.diff | numberFormat:'2'}}%</span>
                             </td>
                             <td><span class="link" data-popup="tooltip"
                                       data-original-title="Закрепить запись"><i
@@ -86,78 +86,7 @@
                 <div class="position-relative"></div>
             </div>
             <div class="col-lg-6">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h5 class="panel-title">Закрепленные записи</h5>
-                        <div class="heading-elements">
-                            <ul class="list-inline ">
-                                <li><span class="btn btn-link link" data-popup="tooltip"
-                                          data-original-title="Добавить на главную">
-                                                    <i class="glyphicon glyphicon-magnet"></i>
-                                                </span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <table class="table datatable-div-bellow-paperclip">
-                        <thead class="bg-slate-800">
-                        <tr class="border-solid 2px">
-                            <th>#</th>
-                            <th>Пара</th>
-                            <th>Покупка</th>
-                            <th>Продажа</th>
-                            <th>Доход, %</th>
-                            <th></th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr class="cursor-move">
-                            <td>1</td>
-                            <td>
-                                BTC/ETC
-                            </td>
-                            <td><span class="text-muted">Poloniex</span></td>
-                            <td><span class="text-muted">Bittrex</span></td>
-                            <td><span class="text-success-600"><i
-                                    class="icon-stats-growth2 position-left"></i>  2.43% </span>
-                            </td>
-                            <td><span class="link" data-popup="tooltip" data-original-title="Удалить"><i
-                                    class="icon-trash text-danger-800 position-left"></i></span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>
-                                BTC/ETC
-                            </td>
-                            <td><span class="text-muted">Poloniex</span></td>
-                            <td><span class="text-muted">Bittrex</span></td>
-                            <td><span class="text-success-600"><i
-                                    class="icon-stats-growth2 position-left"></i>  5.43% </span>
-                            </td>
-                            <td><span class="link" data-popup="tooltip" data-original-title="Удалить"><i
-                                    class="icon-trash text-danger-800 position-left"></i></span>
-                            </td>
-                        </tr>
-                        <tr *ngFor="let row of diff">
-                            <td>2</td>
-                            <td>
-                                BTC/ETC
-                            </td>
-                            <td><span class="text-muted">Poloniex</span></td>
-                            <td><span class="text-muted">Bittrex</span></td>
-                            <td><span class="text-success-600"><i
-                                    class="icon-stats-growth2 position-left"></i>  5.43% </span>
-                            </td>
-                            <td><span class="link" data-popup="tooltip" data-original-title="Удалить"><i
-                                    class="icon-trash text-danger-800 position-left"></i></span>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="position-relative"></div>
-                <!--<pre class="pre-scrollable"><code id="event-result">// Event result</code></pre>-->
+                <admin-dashbord-between-component></admin-dashbord-between-component>
             </div>
         </div>
     </div>
@@ -165,111 +94,7 @@
         <div class="sidebar">
             <div class="sidebar-content">
                 <!-- Sidebar search -->
-                <div class="sidebar-category no-padding">
-                    <div class="category-title">
-                        <span><i class="icon-filter3"></i> Фильтры</span>
-                        <ul class="icons-list">
-                            <li class="dropdown">
-                                            <span class="dropdown-toggle text-blue-400 link " data-toggle="dropdown">Список <span class="badge badge-primary">2 <i
-                                                    class="fa fa-caret-down"></i></span></span>
-                                <ul class="dropdown-menu dropdown-menu-right">
-                                    <li class="disabled"><a href="#">Фильтров еще нет</a></li>
-                                    <li><span class="btn btn-link btn-flat">Без говна</span>
-                                        <i class="icon-trash text-danger-600 filters-delete" data-popup="tooltip"
-                                           data-original-title="Удалить"></i>
-
-                                    </li>
-                                    <li><span class="btn btn-link btn-flat">Эфир на всех</span>
-                                        <i class="icon-trash text-danger-600 filters-delete" data-popup="tooltip"
-                                           data-original-title="Удалить"></i>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="category-content">
-                        <form [formGroup]="form">
-                        <div class="form-group">
-                            <label>По биржам</label>
-                            <div class="input-group" [ngClass]="{'has-warning':!form.value.exchangeEnable}">
-											<span class="input-group-addon switchery-xs">
-													<input formControlName="exchangeEnable" type="checkbox" class="switchery">
-                                            </span>
-                                <div class="multi-select-full form-control">
-                                    <select formControlName="exchange" class="multiselect-select-all-filtering"
-                                            data-non-selected-text="Биржи не выбраны"
-                                            data-select-all-text="Выбрать все"
-                                            multiple="multiple">
-                                        <option value="cheese">Poloniex</option>
-                                        <option value="tomatoes">Kraken</option>
-                                        <option value="mozarella">YoBit</option>
-                                        <option value="mushrooms">Bittrex</option>
-                                    </select>
-                                </div>
-                                <div *ngIf="!form.value.exchangeEnable" class="form-control-feedback">
-                                    <i class="icon-notification2"></i>
-                                </div>
-                                <span *ngIf="!form.value.exchangeEnable" class="help-block">Фильтр не включен</span>
-                            </div>
-
-                        </div>
-                        <div class="form-group">
-                            <label>По паре </label>
-                            <div class="input-group">
-                                        <span class="input-group-addon switchery-xs">
-													<input formControlName="pairEnable" type="checkbox" class="switchery" style="display: none;">
-                                            </span>
-                                <div class="multi-select-full">
-                                    <select formControlName="pair" class="multiselect-select-all-filtering"
-                                            data-non-selected-text="Пары не выбраны"
-                                            data-select-all-text="Выбрать все" multiple="multiple">
-                                        <option value="cheese">BTC/ETH</option>
-                                        <option value="tomatoes">BTC/XMR</option>
-                                        <option value="mozarella">BTC/DCR</option>
-                                        <option value="mushrooms">BTC/XLM</option>
-                                    </select>
-                                </div>
-                                <div class="form-control-feedback">
-                                    <i class="icon-notification2"></i>
-                                </div>
-                                <span class="help-block">Фильтр не включен</span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label>По активу</label>
-                            <div class="input-group">
-                                        <span class="input-group-addon switchery-xs">
-													<input formControlName="valuteEnable" type="checkbox" class="switchery" style="display: none;">
-                                            </span>
-                                <div class="multi-select-full">
-                                    <select formControlName="valute" class="multiselect-select-all-filtering"
-                                            data-non-selected-text="Активы не выбраны"
-                                            data-select-all-text="Выбрать все" multiple="multiple">
-                                        <option value="cheese">Etherium</option>
-                                        <option value="tomatoes">Bitcoin</option>
-                                        <option value="mozarella">Litecoin</option>
-                                        <option value="mushrooms">Doge</option>
-                                    </select>
-                                </div>
-                                <div class="form-control-feedback">
-                                    <i class="icon-notification2"></i>
-                                </div>
-                                <span class="help-block">Фильтр не включен</span>
-                            </div>
-                        </div>
-                        <div class="form-group z0">
-                            <label class="text-blue-400">Сохранить фильтр</label>
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Название">
-                                <span class="input-group-btn">
-													<button class="btn btn-primary" type="button"><i
-                                                            class="icon-plus22"></i></button>
-												</span>
-                            </div>
-                        </div>
-                        </form>
-                    </div>
-                </div>
+                <admin-between-filters></admin-between-filters>
             </div>
         </div>
     </div>

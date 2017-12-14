@@ -13,6 +13,8 @@ export class Auth {
         // if (Meteor.userId()) {
         //     router.navigate(['/cabinet', 'main']);
         // }
-        jQuery('body').addClass('auth');
+        // jQuery('body').addClass('auth')
+        jQuery('#connectionsError').hide()
+
     }
 }
