@@ -26,20 +26,20 @@
                 <label>По биржам</label>
                 <div class="input-group" [ngClass]="{'has-warning':!form.value.exchangeEnable}">
 											<span class="input-group-addon switchery-xs">
-													<input formControlName="exchangeEnable" type="checkbox" class="switchery">
+													<input formControlName="exchangesEnable" type="checkbox" class="switchery">
                                             </span>
                     <div class="multi-select-full form-control">
-                        <select formControlName="exchange" class="multiselect-select-all-filtering"
-                                data-non-selected-text="Биржи не выбраны"
-                                data-select-all-text="Выбрать все"
-                                multiple="multiple">
-                            <option *ngFor="let option of exchanges" [value]="option.id">{{option.name}}</option>
-                        </select>
+                        <!--<select formControlName="exchanges" class="multiselect-select-all-filtering"-->
+                                <!--data-non-selected-text="Биржи не выбраны"-->
+                                <!--data-select-all-text="Выбрать все"-->
+                                <!--multiple="multiple">-->
+                            <!--<option *ngFor="let option of exchanges" [value]="option.id">{{option.name}}</option>-->
+                        <!--</select>-->
                     </div>
-                    <div *ngIf="!form.value.exchangeEnable" class="form-control-feedback">
+                    <div *ngIf="!form.value.exchangesEnable" class="form-control-feedback">
                         <i class="icon-notification2"></i>
                     </div>
-                    <span *ngIf="!form.value.exchangeEnable" class="help-block">Фильтр не включен</span>
+                    <span *ngIf="!form.value.exchangesEnable" class="help-block">Фильтр не включен</span>
                 </div>
 
             </div>
@@ -47,14 +47,14 @@
                 <label>По паре </label>
                 <div class="input-group">
                                         <span class="input-group-addon switchery-xs">
-													<input formControlName="pairEnable" type="checkbox" class="switchery" style="display: none;">
+													<input formControlName="pairsEnable" type="checkbox" class="switchery" style="display: none;">
                                             </span>
                     <div class="multi-select-full">
-                        <select formControlName="pair" class="multiselect-select-all-filtering"
-                                data-non-selected-text="Пары не выбраны"
-                                data-select-all-text="Выбрать все" multiple="multiple">
-                            <option *ngFor="let option of pairs" [value]="option.id">{{option.name}}</option>
-                        </select>
+                        <!--<select formControlName="pairs" class="multiselect-select-all-filtering"-->
+                                <!--data-non-selected-text="Пары не выбраны"-->
+                                <!--data-select-all-text="Выбрать все" multiple="multiple">-->
+                            <!--<option *ngFor="let option of pairs" [value]="option.id">{{option.name}}</option>-->
+                        <!--</select>-->
                     </div>
                     <div class="form-control-feedback">
                         <i class="icon-notification2"></i>
@@ -66,14 +66,15 @@
                 <label>По активу</label>
                 <div class="input-group">
                                         <span class="input-group-addon switchery-xs">
-													<input formControlName="valuteEnable" type="checkbox" class="switchery" style="display: none;">
+													<input formControlName="activesEnable" type="checkbox" class="switchery" style="display: none;">
                                             </span>
                     <div class="multi-select-full">
-                        <select formControlName="valute" class="multiselect-select-all-filtering"
-                                data-non-selected-text="Активы не выбраны"
-                                data-select-all-text="Выбрать все" multiple="multiple">
-                            <option *ngFor="let option of actives" [value]="option.id">{{option.name}}</option>
-                        </select>
+                        <!--<select formControlName="actives" class="multiselect-select-all-filtering"-->
+                                <!--data-non-selected-text="Активы не выбраны"-->
+                                <!--data-select-all-text="Выбрать все" multiple="multiple">-->
+                            <!--<option *ngFor="let option of actives" [value]="option.id">{{option.name}}</option>-->
+                        <!--</select>-->
+                        <multiselect-select-all-filtering formControlName="actives" [value]="form.value.actives" [items]="activesList"></multiselect-select-all-filtering>
                     </div>
                     <div class="form-control-feedback">
                         <i class="icon-notification2"></i>

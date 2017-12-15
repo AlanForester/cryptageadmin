@@ -1,34 +1,97 @@
-import {Directive, Renderer, ElementRef, Optional, Input, Output, EventEmitter} from '@angular/core';
-import {NgModel, NgControl} from '@angular/forms';
+import {Component, ElementRef, forwardRef, Input} from "@angular/core";
+import {ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR} from "@angular/forms";
 
 declare var jQuery: any;
 
 
-@Directive({
-    selector: 'select.multiselect-select-all-filtering:not(.notdirective)',
+@Component({
+    moduleId: module.id.toString(),
+    selector: 'multiselect-select-all-filtering',
+    templateUrl: '/app/directives/multiselect1.html',
+    providers: [
+        {
+            provide: NG_VALUE_ACCESSOR,
+            useExisting: forwardRef(() => Multiselect1Directive),
+            multi: true,
+        }
+    ]
 })
+export class Multiselect1Directive implements ControlValueAccessor {
+    @Input() value: any[] = [];
+    @Input() items: any[];
 
-export class Multiselect1Directive {
+    constructor(private elementRef: ElementRef) {
+    }
 
-    private element: ElementRef;
+    // the method set in registerOnChange, it is just
+    // a placeholder for a method that takes one parameter,
+    // we use it to emit changes back to the form
+    private propagateChange = (_: any) => {
+    };
 
-    constructor(private renderer: Renderer, elementRef: ElementRef,
-                private control: NgControl) {
-        this.element = elementRef;
+    // this is the initial value set to the component
+    public writeValue(obj: any) {
+        if (obj) {
+            if (Array.isArray(obj)) {
+                this.value = obj;
+                // this.onChange(obj)
+            } else {
+                this.value = [obj];
+                // this.onChange([obj])
+            }
+        }
+        console.log('--------',this.value)
+    }
+
+    // registers 'fn' that will be fired when changes are made
+    // this is how we emit the changes back to the form
+    public registerOnChange(fn: any) {
+        this.propagateChange = fn;
+    }
+
+    // not used, used for touch input
+    public registerOnTouched(fn:any) {
+        this.touched = fn;
+    }
+
+    touched(a:any) {
+        console.log('touched', a)
+
+    }
+
+    private onChange(value: any) {
+        this.value = value;
+        this.propagateChange(this.value);
     }
 
     ngOnInit() {
+        // setInterval(()=>{
+        //     console.log(this.formControl.value)
+        // },1000)
     }
 
     ngOnDestroy() {
     }
 
     ngOnChanges(changes: any) {
+        console.log(changes)
+        if (changes.items) {
+            setTimeout(()=>{
+                jQuery(this.elementRef.nativeElement).find('select').multiselect('rebuild');
+                jQuery(this.elementRef.nativeElement).find('select').multiselect('refresh');
+            })
+        }
+        if (changes.value) {
+            this.writeValue(this.value);
+            setTimeout(()=>{
+                jQuery(this.elementRef.nativeElement).find('select').multiselect('rebuild');
+                jQuery(this.elementRef.nativeElement).find('select').multiselect('refresh');
+            },500)
+        }
     }
 
-
     ngAfterViewInit() {
-        jQuery(this.element.nativeElement).multiselect({
+        jQuery(this.elementRef.nativeElement).find('select').multiselect({
             includeSelectAllOption: false,
             enableFiltering: true,
             templates: {
@@ -38,9 +101,22 @@ export class Multiselect1Directive {
                 jQuery.uniform.update();
             },
             onChange: (option:any, checked:any, select:any) => {
-                this.control.control.patchValue(jQuery(option).val());
+                console.log(option, checked, select)
+                let option_id = jQuery(option).val();
+                let find = this.value.indexOf(option_id);
+                if (find > -1) {
+                    if (!checked) {
+                        //  удаляем
+                        this.value.splice(find,1);
+                    }
+                } else {
+                    if (checked) {
+                        //  добавляем
+                        this.value.push(option_id)
+                    }
+                }
+                this.onChange(this.value);
             }
         });
-
     }
 }

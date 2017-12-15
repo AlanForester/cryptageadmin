@@ -16,31 +16,40 @@ declare var jQuery: any;
 export class AdminBetweenFilters {
     private form: FormGroup;
 
-    private exchanges: any[];
-    private pairs: any[];
-    private actives: any[];
+    private exchangesList: any[];
+    private pairsList: any[];
+    private activesList: any[];
 
     constructor(private service: BetweenService) {
         this.form = new FormGroup({
-            exchangeEnable: new FormControl(false),
-            exchange: new FormControl(null),
-            pairEnable: new FormControl(false),
-            pair: new FormControl(null),
-            valuteEnable: new FormControl(false),
-            valute: new FormControl(null),
+            exchangesEnable: new FormControl(false),
+            exchanges: new FormControl(null),
+            pairsEnable: new FormControl(false),
+            pairs: new FormControl(null),
+            activesEnable: new FormControl(false),
+            actives: new FormControl('1'),
         })
     }
 
     ngOnInit() {
-        this.getExchanges();
-        this.getPairs();
+        // this.getExchanges();
+        // this.getPairs();
         this.getActives();
+
+        setTimeout(()=>{
+            console.log('patch')
+            this.form.patchValue({actives:'13'})
+        },5000)
+
+        this.form.valueChanges.subscribe((val)=>{
+            console.log(val)
+        })
     }
 
     getExchanges() {
         let s1 = this.service.getExchanges().subscribe(
             res => {
-                this.exchanges = res;
+                this.exchangesList = res;
             },
             error => {
                 console.log(error)
@@ -51,7 +60,7 @@ export class AdminBetweenFilters {
     getPairs() {
         let s1 = this.service.getPairs().subscribe(
             res => {
-                this.pairs = res;
+                this.pairsList = res;
             },
             error => {
                 console.log(error)
@@ -62,7 +71,11 @@ export class AdminBetweenFilters {
     getActives() {
         let s1 = this.service.getActives().subscribe(
             res => {
-                this.actives = res;
+                console.log('getActives',res)
+                for (let i in  res) {
+                    res[i].id = res[i].id.toString();
+                 }
+                this.activesList = res;
             },
             error => {
                 console.log(error)
