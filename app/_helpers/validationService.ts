@@ -130,5 +130,5 @@ export class ValidationService {
 }
 
 export function has_error(c: FormControl) {
-    return c.errors && c.dirty;
+    return c && c.errors && c.dirty;
 }

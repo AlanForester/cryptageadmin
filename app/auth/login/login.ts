@@ -25,6 +25,9 @@ export class AuthLogin {
     public error: string = '';
 
     constructor(private route: ActivatedRoute, private router: Router, private auth: AuthenticationService) {
+        if (this.auth.token) {
+            this.router.navigate(['/admin']);
+        }
     }
 
     ngOnInit() {

@@ -18,6 +18,7 @@ declare var jQuery: any;
 export class AdminBetween {
     rows: any[] = [];
 
+    timer:any;
 
     constructor(private router: Router, title: Title, private service: BetweenService) {
         title.setTitle("Главная - EmpireCPA");
@@ -29,7 +30,7 @@ export class AdminBetween {
     ngOnInit() {
         this.getData();
 
-        setInterval(()=>{
+        this.timer = setInterval(()=>{
             this.getData();
         },5000);
 
@@ -115,6 +116,9 @@ export class AdminBetween {
     }
 
     ngOnDestroy() {
+        if (this.timer) {
+            clearInterval(this.timer);
+        }
     }
 
     getData() {

@@ -1,162 +1,72 @@
-<!--<div class="control" style="display: none">-->
-    <!--<div class="col-md-8 col-md-offset-2 panel panel-default">-->
+<!-- Page container -->
+<div class="page-container">
 
-        <!--<div class="panel-heading">-->
-            <!--<h3>Регистрация</h3>-->
-        <!--</div>-->
-        <!--<div class="panel-body container">-->
-            <!--<form [formGroup]="form" #f="ngForm" class="form-horizontal">-->
-                <!--<div class="form-group" [ngClass]="{ 'has-error': getHasError('username') }">-->
-                    <!--<label for="username" class="col-md-4 col-xs-5 control-label">Имя&nbsp;пользователя</label>-->
-                    <!--<div class="col-md-8 col-xs-7">-->
-                        <!--<input formControlName="username" type="text" class="form-control" id="username"-->
-                               <!--placeholder="Василий">-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="form-group" [ngClass]="{ 'has-error': getHasError('email') }">-->
-                    <!--<label for="email" class="col-md-4 col-xs-5 control-label">Email адрес</label>-->
-                    <!--<div class="col-md-8 col-xs-7">-->
-                        <!--<input formControlName="email" type="email" class="form-control" id="email"-->
-                               <!--placeholder="Email">-->
-                    <!--</div>-->
-                    <!--<div class="col-md-8 col-xs-7 col-md-offset-4 col-xs-offset-5"-->
-                         <!--*ngIf="getControl('email').dirty && !getControl('email').valid && !getControl('email').pending">-->
-                        <!--<p class="form-control alert alert-danger margin-top-5"-->
-                           <!--*ngIf="getControl('email').errors.required">-->
-                            <!--Email обязательно для заполнения-->
-                        <!--</p>-->
-                        <!--<p class="form-control alert alert-danger margin-top-5"-->
-                           <!--*ngIf="getControl('email').errors.invalidEmailAddress">-->
-                            <!--Неправильный формат Email-->
-                        <!--</p>-->
-                        <!--<p class="form-control alert alert-danger margin-top-5"-->
-                           <!--*ngIf="getControl('email').errors.emailAlreadyExist">-->
-                            <!--Пользователь с таким Email уже существует-->
-                        <!--</p>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--&lt;!&ndash;<div class="form-group">&ndash;&gt;-->
-                <!--&lt;!&ndash;<label for="invite" class="col-xs-4 control-label">Приглашение</label>&ndash;&gt;-->
-                <!--&lt;!&ndash;<div class="col-xs-8">&ndash;&gt;-->
-                <!--&lt;!&ndash;<input formControlName="invite" type="text" class="form-control" id="invite"&ndash;&gt;-->
-                <!--&lt;!&ndash;placeholder="Invite">&ndash;&gt;-->
-                <!--&lt;!&ndash;</div>&ndash;&gt;-->
-                <!--&lt;!&ndash;<div class="col-xs-8 col-xs-offset-4"&ndash;&gt;-->
-                <!--&lt;!&ndash;*ngIf="getControl('invite').dirty && !getControl('invite').valid && !getControl('invite').pending">&ndash;&gt;-->
-                <!--&lt;!&ndash;<p *ngIf="getControl('invite').errors.inviteIsValid">&ndash;&gt;-->
-                <!--&lt;!&ndash;Приглашение не существует&ndash;&gt;-->
-                <!--&lt;!&ndash;</p>&ndash;&gt;-->
-                <!--&lt;!&ndash;</div>&ndash;&gt;-->
-                <!--&lt;!&ndash;</div>&ndash;&gt;-->
-                <!--<div class="form-group" [ngClass]="{ 'has-error': getHasError('skype') }">-->
-                    <!--<label for="invite" class="col-md-4 col-xs-5 control-label">Скайп</label>-->
-                    <!--<div class="col-md-8 col-xs-7">-->
-                        <!--<input formControlName="skype" type="text" class="form-control" id="skype"-->
-                               <!--placeholder="Skype">-->
-                    <!--</div>-->
-                    <!--<div class="col-md-8 col-xs-7 col-md-offset-4 col-xs-offset-5"-->
-                         <!--*ngIf="getControl('skype').dirty && !getControl('skype').valid && !getControl('skype').pending">-->
-                        <!--<p class="form-control alert alert-danger margin-top-5"-->
-                           <!--*ngIf="getControl('skype').errors.required">-->
-                            <!--Поле обязательно для заполнения-->
-                        <!--</p>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="form-group" [ngClass]="{ 'has-error': getHasError('password') }">-->
-                    <!--<label for="password" class="col-md-4 col-xs-5 control-label">Пароль</label>-->
-                    <!--<div class="col-md-8 col-xs-7">-->
-                        <!--<input formControlName="password" type="password" class="form-control" id="password"-->
-                               <!--placeholder="Пароль">-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="form-group" [ngClass]="{ 'has-error': getHasError('repeatPassword') }">-->
-                    <!--<label for="repeatPassword" class="col-md-4 col-xs-5 control-label">Повторите&nbsp;пароль</label>-->
-                    <!--<div class="col-md-8 col-xs-7">-->
-                        <!--<input formControlName="repeatPassword" type="password" class="form-control"-->
-                               <!--id="repeatPassword" placeholder="Пароль">-->
-                    <!--</div>-->
-                    <!--<div class="col-md-8 col-xs-7 col-md-offset-4 col-xs-offset-5"-->
-                         <!--*ngIf="getControl('repeatPassword').dirty && !getControl('repeatPassword').valid && !getControl('repeatPassword').pending">-->
-                        <!--<p class="form-control alert alert-danger margin-top-5"-->
-                           <!--*ngIf="getControl('repeatPassword').errors.controlCompare">-->
-                            <!--Пароли не совпадают-->
-                        <!--</p>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div *ngIf="error">-->
-                    <!--<p class="alert alert-danger">{{ error }}</p>-->
-                <!--</div>-->
-                <!--<div class="col-md-4 col-xs-12 margin-top-5">-->
-                    <!--<button type="button" class="btn btn-primary" [disabled]="!f.valid" (click)="onSubmit()">-->
-                        <!--Зарегистрироваться-->
-                    <!--</button>-->
-                <!--</div>-->
+    <!-- Page content -->
+    <div class="page-content">
 
-                <!--<div class="col-md-8 col-xs-12 text-right">-->
-                    <!--<button [routerLink]="['/auth/login']" type="button" class="btn btn-link btn-xs">У меня есть-->
-                        <!--учетная запись-->
-                    <!--</button>-->
-                    <!--<button [routerLink]="['/auth/recovery']" type="button" class="btn btn-link btn-xs">Забыли-->
-                        <!--пароль?-->
-                    <!--</button>-->
-                <!--</div>-->
-            <!--</form>-->
-        <!--</div>-->
-    <!--</div>-->
-<!--</div>-->
-<div class="wrapper-form auth register-form">
-    <h3>Регистрация</h3>
-    <form [formGroup]="form" #f="ngForm" (submit)="onSubmit($event)" class="form-horizontal">
-        <div class="group">
-            <div class="label">Имя пользователя</div>
-            <input formControlName="username" type="text" placeholder="Василий" class="form-control" required=""/>
-            <span class="error" *ngIf="getHasError('username')">Обязательное поле</span>
+        <!-- Main content -->
+        <div class="content-wrapper">
+
+            <!-- Advanced login -->
+            <form [formGroup]="form" #f="ngForm" (submit)="onSubmit($event)" class="form-horizontal">
+                <div class="panel panel-body login-form">
+                    <div class="text-center">
+                        <div class="icon-object border-success text-success"><i class="icon-plus3"></i></div>
+                        <h5 class="content-group">Регистрация</h5>
+                    </div>
+
+                    <div class="form-group has-feedback has-feedback-left">
+                        <input  formControlName="userlogin" type="text" class="form-control" placeholder="Василий">
+                        <div class="form-control-feedback">
+                            <i class="icon-user-check text-muted"></i>
+                        </div>
+                        <span *ngIf="getHasError('userlogin')?.errors?.required" class="help-block text-danger"><i class="icon-cancel-circle2 position-left"></i> Обязательное поле</span>
+                        <span *ngIf="getControl('userlogin')?.errors?.loginAlreadyExist" class="help-block text-danger"><i class="icon-cancel-circle2 position-left"></i> Пользователь с таким логином уже существует</span>
+                    </div>
+
+                    <div class="form-group has-feedback has-feedback-left">
+                        <input  formControlName="email" type="text" class="form-control" placeholder="Email">
+                        <div class="form-control-feedback">
+                            <i class="icon-mention text-muted"></i>
+                        </div>
+                        <span *ngIf="getControl('email')?.errors?.required" class="help-block text-danger"><i class="icon-cancel-circle2 position-left"></i> Email обязательно для заполнения</span>
+                        <span *ngIf="getControl('email')?.errors?.invalidEmailAddress" class="help-block text-danger"><i class="icon-cancel-circle2 position-left"></i> Неправильный формат Email</span>
+                        <span *ngIf="getControl('email')?.errors?.emailAlreadyExist" class="help-block text-danger"><i class="icon-cancel-circle2 position-left"></i> Пользователь с таким Email уже существует</span>
+                    </div>
+
+                    <div class="form-group has-feedback has-feedback-left">
+                        <input formControlName="password" type="password" class="form-control" placeholder="Пароль">
+                        <div class="form-control-feedback">
+                            <i class="icon-user-lock text-muted"></i>
+                        </div>
+                        <span *ngIf="getHasError('password')" class="help-block text-danger"><i class="icon-cancel-circle2 position-left"></i> Обязательное поле</span>
+                    </div>
+
+                    <div class="form-group has-feedback has-feedback-left">
+                        <input formControlName="repeatPassword" type="password" class="form-control" placeholder="Повторите пароль">
+                        <div class="form-control-feedback">
+                            <i class="icon-user-lock text-muted"></i>
+                        </div>
+                        <span *ngIf="getControl('repeatPassword')?.errors?.controlCompare" class="help-block text-danger"><i class="icon-cancel-circle2 position-left"></i> Пароли не совпадают</span>
+                    </div>
+
+                    <button type="submit" class="btn bg-teal btn-block btn-lg"  [disabled]="!f.valid">Зарегистрироваться <i class="icon-circle-right2 position-right"></i></button>
+
+                    <div class="form-group has-feedback has-feedback-left">
+                        <a [routerLink]="['/auth/login']">У меня есть учетная запись</a>
+                        <a [routerLink]="['/auth/recovery']">Забыли пароль?</a>
+                    </div>
+                </div>
+            </form>
+            <!-- /advanced login -->
+
         </div>
-        <div class="group">
-            <div class="label">Email адрес</div>
-            <input formControlName="email" type="text" placeholder="Email" class="form-control" required=""/>
-            <span class="error" *ngIf="getControl('email').dirty && !getControl('email').valid && !getControl('email').pending">
-                        <p *ngIf="getControl('email').errors.required">
-                            Email обязательно для заполнения
-                        </p>
-                        <p *ngIf="getControl('email').errors.invalidEmailAddress">
-                            Неправильный формат Email
-                        </p>
-                        <p *ngIf="getControl('email').errors.emailAlreadyExist">
-                            Пользователь с таким Email уже существует
-                        </p>
-            </span>
-        </div>
-        <div class="group">
-            <div class="label">Skype</div>
-            <input formControlName="skype" type="text" placeholder="Skype" class="form-control" required=""/>
-            <span class="error"
-                  *ngIf="getControl('skype').dirty && !getControl('skype').valid && !getControl('skype').pending">
-                <p *ngIf="getControl('skype').errors.required">
-                            Поле обязательно для заполнения
-                </p>
-            </span>
-        </div>
-        <div class="group">
-            <div class="label">Пароль</div>
-            <input formControlName="password" type="password" placeholder="Пароль" class="form-control" required=""/>
-            <span class="error" *ngIf="getHasError('password')">Обязательное поле</span>
-        </div>
-        <div class="group">
-            <div class="label">Повторите пароль</div>
-            <input formControlName="repeatPassword" type="password" placeholder="Пароль" class="form-control" required=""/>
-            <span class="error" *ngIf="getControl('repeatPassword').dirty && !getControl('repeatPassword').valid && !getControl('repeatPassword').pending">
-                <p *ngIf="getControl('repeatPassword').errors.controlCompare">
-                    Пароли не совпадают
-                </p>
-            </span>
-        </div>
-        <div class="group">
-            <input type="submit" value="Зарегистрироваться" [disabled]="!f.valid">
-            <div class="links">
-                <a [routerLink]="['/auth/login']">У меня есть учетная запись</a>
-                <a [routerLink]="['/auth/recovery']">Забыли пароль?</a>
-            </div>
-        </div>
-    </form>
+        <!-- /main content -->
+
+    </div>
+    <!-- /page content -->
+
 </div>
+<!-- /page container -->
+
+

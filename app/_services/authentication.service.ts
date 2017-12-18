@@ -59,13 +59,41 @@ export class AuthenticationService {
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
 
-        let data=SHelper.base64_encode(JSON.stringify({ email: form.email, password: form.password, name: encodeURI(form.username), contacts: [{type: 'Skype', contact: form.skype}]  }));
-
-        return this.http.post(this.cfg.apiUrl + '/site/register', JSON.stringify({ data: data }), options)
+        return this.http.post(this.cfg.apiUrl + '/site/register', JSON.stringify({ data: { email: form.email, password: form.password, userlogin: form.userlogin} }), options)
             .map((response: Response) => {
                 let res = response.json();
                 console.log(res)
                 if (res && res.valid) {
+
+                    this.token = res.token;
+                    localStorage.setItem('CRYPLA', JSON.stringify({ userlogin: form.userlogin, token: this.token }));
+
+                    return true
+                }
+                return false
+            })
+            .catch((error:Response|any)=>{
+                console.log(error)
+                let errMsg: string;
+                if (error instanceof Response) {
+                    const body = error.json() || '';
+                    const err = body.error || JSON.stringify(body);
+                    errMsg = `${error.status} - ${error.statusText || ''} ${err}`;
+                } else {
+                    errMsg = error.message ? error.message : error.toString();
+                }
+                console.error(errMsg);
+                return Observable.throw(errMsg);
+            });
+    }
+    loginAlreadyExist(login: string): Observable<boolean> {
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+
+        return this.http.post(this.cfg.apiUrl + '/site/loginex', JSON.stringify({ userlogin: login}), options)
+            .map((response: Response) => {
+                let res = response.json();
+                if (res && res.valid && res.result) {
                     return true
                 }
                 return false
@@ -88,7 +116,7 @@ export class AuthenticationService {
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
 
-        return this.http.post(this.cfg.apiUrl + '/api/user/emailex', JSON.stringify({ email: email}), options)
+        return this.http.post(this.cfg.apiUrl + '/site/emailex', JSON.stringify({ email: email}), options)
             .map((response: Response) => {
                 let res = response.json();
                 if (res && res.valid && res.result) {

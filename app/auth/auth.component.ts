@@ -10,10 +10,6 @@ declare var jQuery: any;
 
 export class Auth {
     constructor(router: Router) {
-        // if (Meteor.userId()) {
-        //     router.navigate(['/cabinet', 'main']);
-        // }
-        // jQuery('body').addClass('auth')
         jQuery('#connectionsError').hide()
 
     }

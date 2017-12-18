@@ -34,7 +34,7 @@ export class UserService {
                     //     console.log('reset user...');
                     //     window.location.reload();
                     // }
-                    return res.data
+                    return res.result
                 }
                 return {}
             })

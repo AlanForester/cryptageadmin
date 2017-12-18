@@ -7,17 +7,17 @@ import {UserService} from "../../_services/user.service";
 
 export class UserValidators extends Validators{
 
-    inviteIsValid(control: FormControl) {
-        // return new Promise((resolve) => {
-        //     Meteor.call('inviteIsValid', control.value, (err, res) => {
-        //         if (!err && res) {
-        //             resolve(null);
-        //         } else {
-        //             resolve({'inviteIsValid':true});
-        //         }
-        //     });
-        // });
-    }
+    // inviteIsValid(control: FormControl) {
+    //     // return new Promise((resolve) => {
+    //     //     Meteor.call('inviteIsValid', control.value, (err, res) => {
+    //     //         if (!err && res) {
+    //     //             resolve(null);
+    //     //         } else {
+    //     //             resolve({'inviteIsValid':true});
+    //     //         }
+    //     //     });
+    //     // });
+    // }
     static emailAlreadyExist(auth: AuthenticationService) {
         return (c: FormControl) => {
             return new Promise((resolve, reject) => {
@@ -25,6 +25,23 @@ export class UserValidators extends Validators{
                     res => {
                         if (res) {
                             resolve({'emailAlreadyExist': true});
+                        } else {
+                            resolve(null);
+                        }
+                    },
+                    error => {
+                        reject(null);
+                    });
+            });
+        }
+    }
+    static loginAlreadyExist(auth: AuthenticationService) {
+        return (c: FormControl) => {
+            return new Promise((resolve, reject) => {
+                auth.loginAlreadyExist(c.value).subscribe(
+                    res => {
+                        if (res) {
+                            resolve({'loginAlreadyExist': true});
                         } else {
                             resolve(null);
                         }
@@ -53,37 +70,12 @@ export class AuthRegister {
 
     constructor(private router: Router, route: ActivatedRoute, private auth: AuthenticationService) {
         this.form = new FormGroup({
-            username: new FormControl('', [Validators.required, ValidationService.moreThan(3)]),
+            userlogin: new FormControl('', [Validators.required, ValidationService.moreThan(3)], UserValidators.loginAlreadyExist(auth)),
             email: new FormControl('', [Validators.required, ValidationService.emailValidator], UserValidators.emailAlreadyExist(auth)),
-            // invite: new FormControl(''),
-            skype: new FormControl('', Validators.required),
             password: new FormControl('', [Validators.required, ValidationService.moreThan(4)]),
             repeatPassword: new FormControl(''),
         });
         this.form.get('repeatPassword').setValidators([Validators.required, ValidationService.moreThan(4), ValidationService.compare('password', 'repeatPassword')]);
-
-
-        let rout = route.queryParams.subscribe((params: any) => {
-            var obj = {};
-            if (params.wm_nick || params.wm_email || params.wm_password || params.wm_skype) {
-                if (params.wm_nick) {
-                    obj["username"] = params.wm_nick;
-                }
-                if (params.wm_email) {
-                    obj["email"] = params.wm_email;
-                }
-                if (params.wm_password) {
-                    obj["password"] = params.wm_password;
-                    obj["repeatPassword"] = params.wm_password;
-                }
-                if (params.wm_skype) {
-                    obj["skype"] = params.wm_skype;
-                }
-                if (Object.keys(obj).length >= 4) {
-                    this.onSubmit(obj);
-                }
-            }
-        });
     }
 
     getControl(key: string) {
@@ -94,8 +86,8 @@ export class AuthRegister {
         return has_error(<FormControl>this.form.get(key));
     }
 
-    onSubmit(force?: any) {
-        if (this.form.valid || force) {
+    onSubmit() {
+        if (this.form.valid) {
             let s = this.auth.userCreate(this.form.value).subscribe(
                 result => {
                     if (result === true) {
