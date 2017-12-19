@@ -1,0 +1,83 @@
+<!-- Page header -->
+<admin-page-header pageTitle="Внутрибиржевой анализ" (autoChangeEvent)="autoChange($event)"></admin-page-header>
+<!-- /page header -->
+<!-- Content area -->
+<div class="content sidebar-xs has-detached-right">
+    <!-- Main charts -->
+    <div class="container-detached">
+        <div class="content-detached">
+            <div class="col-lg-12">
+                <!-- Traffic sources -->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h5 class="panel-title">Торговые шаблоны</h5>
+                    </div>
+                    <table class="table datatable-div-inside">
+                        <thead class="bg-slate-800">
+                        <tr class="border-solid 2px">
+                            <th>Базовый актив</th>
+                            <th>Биржа</th>
+                            <th>Последовательность сделок</th>
+                            <th>Доход, %</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr *ngFor="let row of rows">
+                            <td>
+                                <button type="button" data-popup="tooltip"
+                                        data-original-title="Добавить в фильтры"
+                                        class="btn border-bottom-orange-800 text-orange-800 btn-link btn-xxs">
+                                    {{row.asset1}}<b><i class="icon-filter4 position-right"></i></b></button>
+                            </td>
+                            <td>
+                                <button type="button" data-popup="tooltip"
+                                        data-original-title="Добавить в фильтры"
+                                        class="btn border-bottom-slate-800 text-slate-800 btn-link btn-xxs">
+                                    {{row.exchange}}<b><i class="icon-filter4 position-right"></i></b>
+                                </button>
+                            </td>
+                            <td>
+                                <i class="icon-coins"></i> <i class="glyphicon  glyphicon-arrow-right"></i>
+                                {{row.asset2}} <i class="glyphicon  glyphicon-arrow-right"></i> {{row.asset3}}
+                                <i class="glyphicon  glyphicon-arrow-right"></i> <i class="icon-coins"></i>
+                            </td>
+                            <td><span class="text-success-600"><i
+                                    class="icon-stats-growth2 position-left"></i> {{row.percent | numberFormat:'2'}}%</span>
+                            </td>
+                            <td>
+                                <ul class="icons-list text-right">
+                                    <li data-popup="tooltip" data-original-title="Показать расчет">
+                                        <button type="button"
+                                                class="btn btn-info btn-icon btn-labeled btn-xs">
+                                            <i class="icon-book2"></i>
+                                        </button>
+                                    </li>
+                                    <li data-popup="tooltip" data-original-title="Создать сигнал по схеме">
+                                        <button type="button"
+                                                class="btn btn-primary btn-icon btn-labeled btn-xs">
+                                            <i class="icon-feed"></i>
+                                        </button>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="position-relative"></div>
+            </div>
+        </div>
+    </div>
+    <div class="sidebar-detached">
+        <div class="sidebar">
+            <div class="sidebar-content">
+                <!-- Sidebar search -->
+                <admin-between-filters (filterChangeEvent)="filterChange($event)"></admin-between-filters>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Footer -->
+
+<!-- /footer -->

@@ -11,40 +11,43 @@ export class ReactiveService {
     public userData: Observable<any>;
     private observer: Observer<any>;
 
-    userLoading:boolean;
+    userLoading: boolean;
 
-    constructor(private US: UserService,private authenticationService: AuthenticationService) {
-        this.userData = new Observable((observer: Observer<any>) => {this.observer=observer}).publish();
+    constructor(private US: UserService, private authenticationService: AuthenticationService) {
+        this.userData = new Observable((observer: Observer<any>) => {
+            this.observer = observer
+        }).publish();
         (this.userData as any).connect();
 
         this.userLoading = true;
         let s = this.US.user().subscribe(res => {
             this.userLoading = false;
             this.observer.next(res)
-        },error=>{
+        }, error => {
             this.userLoading = false;
         });
     }
+
     startUserData() {
         this.clearUserData();
-                let oldVal = '';
-                this.userTimer = setInterval(() => {
-                    if (this.authenticationService.token) {
-                        if (!this.userLoading) {
-                            this.userLoading = true;
-                            let s = this.US.user().subscribe(res => {
-                                this.userLoading = false;
-                                let current = JSON.stringify(res);
-                                if (oldVal != current) {
-                                    oldVal = current;
-                                    this.observer.next(res)
-                                }
-                            },error=>{
-                                this.userLoading = false;
-                            });
+        let oldVal = '';
+        this.userTimer = setInterval(() => {
+            if (this.authenticationService.token) {
+                if (!this.userLoading) {
+                    this.userLoading = true;
+                    let s = this.US.user().subscribe(res => {
+                        let current = JSON.stringify(res);
+                        if (oldVal != current) {
+                            oldVal = current;
+                            this.observer.next(res)
                         }
-                    }
-                }, 11000)
+                        this.userLoading = false;
+                    }, error => {
+                        this.userLoading = false;
+                    });
+                }
+            }
+        }, 11000)
     }
 
     clearUserData() {

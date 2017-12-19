@@ -11,13 +11,18 @@ declare var Switchery: any;
 
 export class SwitcheryDirective {
 
-    private element:ElementRef;
+    private element: ElementRef;
 
     switchery: any;
 
+    control: NgControl;
+
     constructor(private renderer: Renderer, elementRef: ElementRef,
-                private control: NgControl) {
+                @Optional() control: NgControl) {
         this.element = elementRef;
+        if (control) {
+            this.control = control;
+        }
     }
 
     ngOnInit() {
@@ -27,8 +32,20 @@ export class SwitcheryDirective {
     }
 
 
-
     ngAfterViewInit() {
         this.switchery = new Switchery(this.element.nativeElement);
+        setTimeout(() => { // магия
+            if (this.control && this.control.value) {
+                this.switchery.checked = true
+                if (typeof Event === 'function' || 'fireEvent' !in document) {
+                    var event = document.createEvent('HTMLEvents');
+                    event.initEvent('change', true, true);
+                    this.element.nativeElement.dispatchEvent(event);
+                } else {
+                    this.element.nativeElement.fireEvent('onchange');
+                }
+
+            }
+        },500)
     }
 }

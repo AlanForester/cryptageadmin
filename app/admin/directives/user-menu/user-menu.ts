@@ -13,7 +13,6 @@ export class UserMenuDirective {
         RS.startUserData()
         let s = RS.userData.subscribe(
             res => {
-                console.log(res)
                 this.user = res;
             });
     }

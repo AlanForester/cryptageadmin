@@ -1,4 +1,4 @@
 <select class="multiselect-select-all-filtering" multiple
         [value]="value">
-    <option *ngFor="let option of items" [value]="option.id" [selected]="value.indexOf(option.id)>-1">{{option.name}}</option>
+    <option *ngFor="let option of items" [value]="option.id" [selected]="value&&value.length&&value.indexOf(option.id)>-1">{{option.name}}</option>
 </select>

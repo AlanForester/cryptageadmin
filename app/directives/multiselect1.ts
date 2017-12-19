@@ -103,17 +103,21 @@ export class Multiselect1Directive implements ControlValueAccessor {
             onChange: (option:any, checked:any, select:any) => {
                 console.log(option, checked, select)
                 let option_id = jQuery(option).val();
-                let find = this.value.indexOf(option_id);
-                if (find > -1) {
-                    if (!checked) {
-                        //  удаляем
-                        this.value.splice(find,1);
+                if (this.value&&this.value.length) {
+                    let find = this.value.indexOf(option_id);
+                    if (find > -1) {
+                        if (!checked) {
+                            //  удаляем
+                            this.value.splice(find, 1);
+                        }
+                    } else {
+                        if (checked) {
+                            //  добавляем
+                            this.value.push(option_id)
+                        }
                     }
                 } else {
-                    if (checked) {
-                        //  добавляем
-                        this.value.push(option_id)
-                    }
+                    this.value = [option_id]
                 }
                 this.onChange(this.value);
             }

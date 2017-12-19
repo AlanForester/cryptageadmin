@@ -1,0 +1,36 @@
+<div class="page-header page-header-default has-cover">
+    <div class="page-header-content">
+        <div class="page-title">
+            <h4><i class="icon-arrow-left52 position-left"></i> {{pageTitle}}</h4>
+        </div>
+
+        <div class="heading-elements">
+            <div class="heading-btn-group">
+                            <span href="#" class="btn btn-link btn-float has-text link"><i
+                                    class="icon-lifebuoy text-primary"
+                                    style="font-size: 20px;"></i> <span>Поддержка</span></span>
+                <span href="#" class="btn btn-link btn-float has-text link"><i
+                        class="icon-help text-primary"
+                        style="font-size: 20px;"></i> <span>Справка</span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="breadcrumb-line">
+        <ul class="breadcrumb">
+            <li><a href="dashboard.html"><i class="icon-home2 position-left"></i> Главная</a></li>
+            <li class="active">{{pageTitle}}</li>
+        </ul>
+
+        <ul class="breadcrumb-elements">
+            <li style="margin-top: 10px;">
+                <div href="#" class="checkbox-right checkbox-switchery switchery-sm ">
+                    <label>
+                        <input [ngModel]="auto" (ngModelChange)="autoChange($event)" type="checkbox" class="switchery">
+                        Автоматическое обновление данных:
+                    </label>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

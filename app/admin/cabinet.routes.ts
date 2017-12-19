@@ -1,6 +1,7 @@
 import { Route } from '@angular/router';
 import {AdminMain} from "./main/main";
 import {AdminBetween} from "./between/between";
+import {AdminInside} from "./inside/inside";
 
 export const adminRoutes: Route[] = [
     {
@@ -12,6 +13,9 @@ export const adminRoutes: Route[] = [
     }, {
         path: 'between',
         component: AdminBetween,
+    }, {
+        path: 'inside',
+        component: AdminInside,
     }, {
         path: '**',
         redirectTo: ''

@@ -19,6 +19,7 @@ export class AdminBetween {
     rows: any[] = [];
 
     timer:any;
+    private filters: any;
 
     constructor(private router: Router, title: Title, private service: BetweenService) {
         title.setTitle("Главная - EmpireCPA");
@@ -30,9 +31,7 @@ export class AdminBetween {
     ngOnInit() {
         this.getData();
 
-        this.timer = setInterval(()=>{
-            this.getData();
-        },5000);
+        // this.autoOn();
 
         // Table setup
         // ------------------------------
@@ -116,15 +115,39 @@ export class AdminBetween {
     }
 
     ngOnDestroy() {
+        this.autoOff();
+    }
+
+    autoOn() {
+        this.timer = setInterval(()=>{
+            this.getData();
+        },5000);
+    }
+
+    autoOff() {
         if (this.timer) {
             clearInterval(this.timer);
         }
     }
 
+    autoChange(e:boolean) {
+        this.autoOff();
+        if (e) {
+            this.autoOn();
+        }
+    }
+
+    filterChange(e:any) {
+        console.log(e)
+
+        this.filters = e;
+        this.getData();
+    }
+
     getData() {
-        let s1 = this.service.getDiffs().subscribe(
+        let s1 = this.service.getDiffs(this.filters).subscribe(
             res => {
-                console.log('getMainPage', res);
+                console.log('between', res);
                 this.rows = res;
                 jQuery('#preloader').hide();
             },

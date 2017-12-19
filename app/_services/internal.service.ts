@@ -5,16 +5,16 @@ import 'rxjs/add/operator/map'
 import {BaseService} from "./base.service";
 
 @Injectable()
-export class BetweenService {
+export class InternalService {
 
     constructor(private BS: BaseService) {}
 
-    getDiffs(filters:any): Observable<any> {
+    getInternalList(filters:any): Observable<any> {
         let data:any = {};
         if (filters) {
             data.filters = filters;
         }
-        return this.BS.httpPost('/user/api', data)
+        return this.BS.httpPost('/user/internal/list', data)
             .map((response: Response) => {
                 // console.log(response)
                 let res = response.json();
@@ -24,6 +24,7 @@ export class BetweenService {
                 return []
             })
     }
+
     getExchanges(): Observable<any> {
         return this.BS.httpPost('/user/exchanges', {})
             .map((response: Response) => {

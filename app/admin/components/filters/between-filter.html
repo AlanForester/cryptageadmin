@@ -35,6 +35,7 @@
                                 <!--multiple="multiple">-->
                             <!--<option *ngFor="let option of exchanges" [value]="option.id">{{option.name}}</option>-->
                         <!--</select>-->
+                        <multiselect-select-all-filtering formControlName="exchanges" [value]="form.value.exchanges" [items]="exchangesList"></multiselect-select-all-filtering>
                     </div>
                     <div *ngIf="!form.value.exchangesEnable" class="form-control-feedback">
                         <i class="icon-notification2"></i>
@@ -49,12 +50,13 @@
                                         <span class="input-group-addon switchery-xs">
 													<input formControlName="pairsEnable" type="checkbox" class="switchery" style="display: none;">
                                             </span>
-                    <div class="multi-select-full">
+                    <div class="multi-select-full form-control">
                         <!--<select formControlName="pairs" class="multiselect-select-all-filtering"-->
                                 <!--data-non-selected-text="Пары не выбраны"-->
                                 <!--data-select-all-text="Выбрать все" multiple="multiple">-->
                             <!--<option *ngFor="let option of pairs" [value]="option.id">{{option.name}}</option>-->
                         <!--</select>-->
+                        <multiselect-select-all-filtering formControlName="pairs" [value]="form.value.pairs" [items]="pairsList"></multiselect-select-all-filtering>
                     </div>
                     <div class="form-control-feedback">
                         <i class="icon-notification2"></i>
@@ -68,7 +70,7 @@
                                         <span class="input-group-addon switchery-xs">
 													<input formControlName="activesEnable" type="checkbox" class="switchery" style="display: none;">
                                             </span>
-                    <div class="multi-select-full">
+                    <div class="multi-select-full form-control">
                         <!--<select formControlName="actives" class="multiselect-select-all-filtering"-->
                                 <!--data-non-selected-text="Активы не выбраны"-->
                                 <!--data-select-all-text="Выбрать все" multiple="multiple">-->
