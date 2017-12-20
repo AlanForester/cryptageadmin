@@ -35,8 +35,8 @@ export class AdminBetweenFilters {
     }
 
     ngOnInit() {
-        // this.getExchanges();
-        // this.getPairs();
+        this.getExchanges();
+        this.getPairs();
         this.getActives();
 
         this.filterChangeEvent.emit(this.form.value);
