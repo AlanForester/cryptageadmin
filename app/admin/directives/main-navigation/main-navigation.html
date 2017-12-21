@@ -1,14 +1,28 @@
+<div class="sidebar-user" *ngIf="user">
+    <div class="category-content">
+        <div class="media">
+            <a href="#" class="media-left"><img src="/public/assets/images/placeholder.jpg"
+                                                class="img-circle img-sm" alt=""></a>
+            <div class="media-body">
+                <span class="media-heading text-semibold">{{user.username?user.username:user.userlogin}}</span>
+                <div class="text-size-mini text-muted text-bold text-info-800">Пробный период
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="sidebar-category sidebar-category-visible">
     <div class="category-content no-padding">
         <ul class="navigation navigation-main navigation-accordion">
             <li class="navigation-header"><span>Балансы</span> <i class="icon-menu"
                                                                   title="Balances"></i></li>
             <li><a href="#"><i class="icon-wallet text-size-small"></i> Кошелек
-                <span class="text-bold text-orange-700" style="float:right">0.00000007 <i
+                <span class="text-bold text-orange-700" style="float:right">{{user?.cash}} <i
                         class="fa fa-btc"></i></span>
             </a></li>
             <li><a href="#"><i class="icon-coins text-size-small"></i> Инвестиции
-                <span class="text-bold text-orange-700" style="float:right">0.00000007 <i
+                <span class="text-bold text-orange-700" style="float:right">{{user?.hold}} <i
                         class="fa fa-btc"></i></span></a></li>
             <!-- Main -->
             <li class="navigation-header"><span>Основное меню</span> <i class="icon-menu"
@@ -26,7 +40,7 @@
                 <a href="#"><i class="icon-satellite-dish2"></i>Торговые сигналы </a>
                 <ul>
                     <li><a href="#"><i class="glyphicon glyphicon-transfer"></i>Межбиржевые</a></li>
-                    <li><a href="#"><i class="icon-circles"></i>Внутрибиржевые</a></li>
+                    <li><a [routerLink]="['/admin', 'signals', 'inside']"><i class="icon-circles"></i>Внутрибиржевые</a></li>
                     <li><a href="#"><i class="icon-stats-dots"></i>Технические</a></li>
                     <li><a href="#"><i class="icon-reading"></i>Пользовательские</a></li>
                 </ul>

@@ -6554,3 +6554,11 @@ border-top-color: inherit;
   top: 5px;
   right: 7px;
 }
+
+.input-group .form-control {
+  z-index: auto !important;
+}
+
+li.multiselect-filter {
+  z-index: 2;
+}

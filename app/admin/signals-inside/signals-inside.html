@@ -15,7 +15,8 @@
                     <table class="table datatable-div-inside">
                         <thead class="bg-slate-800">
                         <tr class="border-solid 2px">
-                            <th>Базовый актив</th>
+                            <th>Название</th>
+                            <th>Пользователь</th>
                             <th>Биржа</th>
                             <th>Последовательность сделок</th>
                             <th>Доход, %</th>
@@ -28,38 +29,45 @@
                                 <button type="button" data-popup="tooltip"
                                         data-original-title="Добавить в фильтры"
                                         class="btn border-bottom-orange-800 text-orange-800 btn-link btn-xxs">
-                                    {{row.asset1}}<b><i class="icon-filter4 position-right"></i></b></button>
+                                    {{row.signame}}<b><i class="icon-filter4 position-right"></i></b></button>
                             </td>
                             <td>
                                 <button type="button" data-popup="tooltip"
                                         data-original-title="Добавить в фильтры"
                                         class="btn border-bottom-slate-800 text-slate-800 btn-link btn-xxs">
-                                    {{row.exchange}}<b><i class="icon-filter4 position-right"></i></b>
+                                    {{row.username?row.username:row.userlogin}}<b><i class="icon-filter4 position-right"></i></b>
                                 </button>
                             </td>
                             <td>
-                                <i class="icon-coins"></i> <i class="glyphicon  glyphicon-arrow-right"></i>
-                                {{row.asset2}} <i class="glyphicon  glyphicon-arrow-right"></i> {{row.asset3}}
+                                <button type="button" data-popup="tooltip"
+                                        data-original-title="Добавить в фильтры"
+                                        class="btn border-bottom-slate-800 text-slate-800 btn-link btn-xxs">
+                                    {{row.e1_name}}<b><i class="icon-filter4 position-right"></i></b>
+                                </button>
+                            </td>
+                            <td>
+                                {{row.a1_name}} <i class="glyphicon  glyphicon-arrow-right"></i>
+                                {{row.a2_name}} <i class="glyphicon  glyphicon-arrow-right"></i> {{row.a3_name}}
                                 <i class="glyphicon  glyphicon-arrow-right"></i> <i class="icon-coins"></i>
                             </td>
                             <td><span class="text-success-600"><i
-                                    class="icon-stats-growth2 position-left"></i> {{row.percent | numberFormat:'2'}}%</span>
+                                    class="icon-stats-growth2 position-left"></i> {{row.data2 | numberFormat:'2'}}%</span>
                             </td>
                             <td>
-                                <ul class="icons-list text-right">
-                                    <li data-popup="tooltip" data-original-title="Показать расчет">
-                                        <button type="button"
-                                                class="btn btn-info btn-icon btn-labeled btn-xs">
-                                            <i class="icon-book2"></i>
-                                        </button>
-                                    </li>
-                                    <li data-popup="tooltip" data-original-title="Создать сигнал по схеме">
-                                        <button type="button" (click)="addSignalClick(i)"
-                                                class="btn btn-primary btn-icon btn-labeled btn-xs">
-                                            <i class="icon-feed"></i>
-                                        </button>
-                                    </li>
-                                </ul>
+                                <!--<ul class="icons-list text-right">-->
+                                    <!--<li data-popup="tooltip" data-original-title="Показать расчет">-->
+                                        <!--<button type="button"-->
+                                                <!--class="btn btn-info btn-icon btn-labeled btn-xs">-->
+                                            <!--<i class="icon-book2"></i>-->
+                                        <!--</button>-->
+                                    <!--</li>-->
+                                    <!--<li data-popup="tooltip" data-original-title="Создать сигнал по схеме">-->
+                                        <!--<button type="button" (click)="addSignalClick(i)"-->
+                                                <!--class="btn btn-primary btn-icon btn-labeled btn-xs">-->
+                                            <!--<i class="icon-feed"></i>-->
+                                        <!--</button>-->
+                                    <!--</li>-->
+                                <!--</ul>-->
                             </td>
                         </tr>
                         </tbody>

@@ -1,0 +1,68 @@
+<div class="sidebar-category no-padding">
+    <div class="category-title">
+        <span><i class="icon-filter3"></i> Фильтры</span>
+        <ul class="icons-list">
+            <li class="dropdown">
+                                            <span class="dropdown-toggle text-blue-400 link " data-toggle="dropdown">Список <span class="badge badge-primary">2 <i
+                                                    class="fa fa-caret-down"></i></span></span>
+                <ul class="dropdown-menu dropdown-menu-right">
+                    <li class="disabled"><a href="#">Фильтров еще нет</a></li>
+                    <li><span class="btn btn-link btn-flat">Без говна</span>
+                        <i class="icon-trash text-danger-600 filters-delete" data-popup="tooltip"
+                           data-original-title="Удалить"></i>
+
+                    </li>
+                    <li><span class="btn btn-link btn-flat">Эфир на всех</span>
+                        <i class="icon-trash text-danger-600 filters-delete" data-popup="tooltip"
+                           data-original-title="Удалить"></i>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="category-content">
+        <form [formGroup]="form">
+            <div class="form-group">
+                <label>По биржам</label>
+                <div class="input-group" [ngClass]="{'has-warning':!form.value.exchangeEnable}">
+											<span class="input-group-addon switchery-xs">
+													<input formControlName="exchangesEnable" type="checkbox" class="switchery">
+                                            </span>
+                    <div class="multi-select-full form-control">
+                        <multiselect-select-all-filtering formControlName="exchanges" [value]="form.value.exchanges" [items]="exchangesList"></multiselect-select-all-filtering>
+                    </div>
+                    <div *ngIf="!form.value.exchangesEnable" class="form-control-feedback">
+                        <i class="icon-notification2"></i>
+                    </div>
+                    <span *ngIf="!form.value.exchangesEnable" class="help-block">Фильтр не включен</span>
+                </div>
+
+            </div>
+            <div class="form-group">
+                <label>По активу </label>
+                <div class="input-group">
+                                        <span class="input-group-addon switchery-xs">
+													<input formControlName="assetsEnable" type="checkbox" class="switchery" style="display: none;">
+                                            </span>
+                    <div class="multi-select-full form-control">
+                        <multiselect-select-all-filtering formControlName="assets" [value]="form.value.assets" [items]="assetsList"></multiselect-select-all-filtering>
+                    </div>
+                    <div *ngIf="!form.value.assetsEnable" class="form-control-feedback">
+                        <i class="icon-notification2"></i>
+                    </div>
+                    <span *ngIf="!form.value.assetsEnable" class="help-block">Фильтр не включен</span>
+                </div>
+            </div>
+            <div class="form-group z0">
+                <label class="text-blue-400">Сохранить фильтр</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Название">
+                    <span class="input-group-btn">
+													<button class="btn btn-primary" type="button"><i
+                                                            class="icon-plus22"></i></button>
+												</span>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
