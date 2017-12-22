@@ -1,5 +1,5 @@
 <!-- Page header -->
-<admin-page-header pageTitle="Внутрибиржевой анализ" (autoChangeEvent)="autoChange($event)"></admin-page-header>
+<admin-page-header pageTitle="Тригеры" (autoChangeEvent)="autoChange($event)"></admin-page-header>
 <!-- /page header -->
 <!-- Content area -->
 <div class="content sidebar-xs has-detached-right">
@@ -10,7 +10,7 @@
                 <!-- Traffic sources -->
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h5 class="panel-title">Торговые шаблоны</h5>
+                        <h5 class="panel-title">тригеры</h5>
                     </div>
                     <table class="table datatable-div-inside">
                         <thead class="bg-slate-800">
@@ -20,6 +20,7 @@
                             <th>Биржа</th>
                             <th>Последовательность сделок</th>
                             <th>Доход, %</th>
+                            <th></th>
                             <th></th>
                         </tr>
                         </thead>
@@ -53,6 +54,7 @@
                             <td><span class="text-success-600"><i
                                     class="icon-stats-growth2 position-left"></i> {{row.data2 }}%</span>
                             </td>
+                            <td>{{row.time| dateFormat: 'DD.MM.YYYY, HH:mm'}}</td>
                             <td>
                                 <!--<ul class="icons-list text-right">-->
                                     <!--<li data-popup="tooltip" data-original-title="Показать расчет">-->

@@ -3,6 +3,7 @@ import {AdminMain} from "./main/main";
 import {AdminBetween} from "./between/between";
 import {AdminInside} from "./inside/inside";
 import {AdminSignalInside} from "./signals-inside/signals-inside";
+import {AdminEventsInside} from "./events-inside/events-inside";
 
 export const adminRoutes: Route[] = [
     {
@@ -20,6 +21,9 @@ export const adminRoutes: Route[] = [
     }, {
         path: 'signals/inside',
         component: AdminSignalInside,
+    }, {
+        path: 'events/inside',
+        component: AdminEventsInside,
     }, {
         path: '**',
         redirectTo: ''

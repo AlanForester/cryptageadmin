@@ -6,6 +6,7 @@ import {ADMIN_COMPONENTS} from "./components/index";
 import {AdminInside} from "./inside/inside";
 import {AdminPageHeader} from "./components/pageheader/pageheader";
 import {AdminSignalInside} from "./signals-inside/signals-inside";
+import {AdminEventsInside} from "./events-inside/events-inside";
 
 export const ADMIN_DECLARATIONS = [
     AdminComponent,
@@ -13,6 +14,7 @@ export const ADMIN_DECLARATIONS = [
     AdminBetween,
     AdminInside,
     AdminSignalInside,
+    AdminEventsInside,
     ...DIRECTIVES_DECLARATIONS,
     ...ADMIN_COMPONENTS,
     AdminPageHeader

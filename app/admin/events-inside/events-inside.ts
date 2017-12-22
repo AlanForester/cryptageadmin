@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {Router} from '@angular/router';
 import {Title} from '@angular/platform-browser'
-import {InternalService} from "../../_services/internal.service";
+import {EventsService} from "../../_services/events.service";
 
 
 declare var jQuery: any;
@@ -10,10 +10,10 @@ declare var jQuery: any;
 @Component({
     moduleId: module.id.toString(),
     selector: 'adminBetween',
-    templateUrl: '/app/admin/inside/inside.html',
-    providers: [InternalService],
+    templateUrl: '/app/admin/events-inside/events-inside.html',
+    providers: [EventsService],
 })
-export class AdminInside {
+export class AdminEventsInside {
     rows: any[] = [];
 
     timer:any;
@@ -23,7 +23,7 @@ export class AdminInside {
     private percent: number;
     private name: string;
 
-    constructor(private router: Router, title: Title, private service: InternalService) {
+    constructor(private router: Router, title: Title, private service: EventsService) {
         title.setTitle("Главная - EmpireCPA");
 
 
@@ -68,9 +68,9 @@ export class AdminInside {
     }
 
     getData() {
-        let s1 = this.service.getInternalList(this.filters).subscribe(
+        let s1 = this.service.getEventsList(this.filters).subscribe(
             res => {
-                console.log('inside', res);
+                console.log('signal-inside', res);
                 this.rows = res;
                 jQuery('#preloader').hide();
             },
@@ -80,20 +80,4 @@ export class AdminInside {
         );
     }
 
-    addSignalClick(i:number) {
-        this.id = this.rows[i].id;
-        this.percent = this.rows[i].percent;
-        this.name = '' + this.rows[i].exchange + ' ' + this.rows[i].asset1 + '-' + this.rows[i].asset2 + '-' + this.rows[i].asset3;
-    }
-    addSignal() {
-        jQuery('#preloader').show();
-        let s1 = this.service.addSignal(this.id, this.percent, this.name).subscribe(
-            res => {
-                jQuery('#preloader').hide();
-            },
-            error => {
-                console.log(error)
-            }
-        );
-    }
 }
