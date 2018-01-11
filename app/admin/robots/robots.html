@@ -1,0 +1,43 @@
+<!-- Page header -->
+<admin-page-header pageTitle="Межбиржевой анализ" (autoChangeEvent)="autoChange($event)"></admin-page-header>
+<!-- /page header -->
+<!-- Content area -->
+<div class="content sidebar-xs has-detached-right">
+    <!-- Main charts -->
+    <div class="container-detached">
+        <div class="content-detached">
+            <div class="col-lg-6">
+                <!-- Traffic sources -->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h5 class="panel-title">Разница цен</h5>
+                    </div>
+                    <table class="table datatable-div-bellow">
+                        <thead class="bg-slate-800">
+                        <tr class="border-solid 2px">
+                            <th>Сигнал</th>
+                            <th>Сумма</th>
+                            <th>Плечо</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr *ngFor="let row of rows">
+                            <td>
+                                {{row.signame}}
+                            </td>
+                            <td>
+                                {{row.summ}}
+                            </td>
+                            <td>
+                                {{row.safe}}
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="position-relative"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /content area -->

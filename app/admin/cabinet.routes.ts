@@ -4,6 +4,7 @@ import {AdminBetween} from "./between/between";
 import {AdminInside} from "./inside/inside";
 import {AdminSignalInside} from "./signals-inside/signals-inside";
 import {AdminEventsInside} from "./events-inside/events-inside";
+import {AdminRobot} from "./robots/robots";
 
 export const adminRoutes: Route[] = [
     {
@@ -15,6 +16,9 @@ export const adminRoutes: Route[] = [
     }, {
         path: 'between',
         component: AdminBetween,
+    }, {
+        path: 'robots',
+        component: AdminRobot,
     }, {
         path: 'inside',
         component: AdminInside,
