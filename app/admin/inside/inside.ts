@@ -93,7 +93,7 @@ export class AdminInside {
     autoOn() {
         this.timer = setInterval(()=>{
             this.getData();
-        },5000);
+        },1000);
     }
 
     autoOff() {

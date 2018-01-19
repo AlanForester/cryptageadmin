@@ -9,6 +9,6 @@ import 'moment/locale/ru';
 })
 export class RelativeDatePipe implements PipeTransform {
     transform(value: string) : string {
-        return Moment(Moment(value).utcOffset(0, true)).locale('ru').fromNow();
+        return Moment(Moment(value.replace('+00:00','')).utcOffset(0,true)).utcOffset(3,false).locale('ru').fromNow(); //todo харкодим московское время
     }
 }

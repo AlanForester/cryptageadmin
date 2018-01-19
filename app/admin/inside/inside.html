@@ -20,6 +20,7 @@
                             <th>Последовательность сделок</th>
                             <th>Доход, %</th>
                             <th></th>
+                            <th></th>
                         </tr>
                         </thead>
                         <tbody>
@@ -44,6 +45,8 @@
                             </td>
                             <td><span class="text-success-600"><i
                                     class="icon-stats-growth2 position-left"></i> {{row.percent | numberFormat:'2'}}%</span>
+                            </td>
+                            <td><span class="text-success-600">{{row.time | relativeDate}}</span>
                             </td>
                             <td>
                                 <ul class="icons-list text-right">
